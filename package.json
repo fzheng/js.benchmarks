@@ -5,6 +5,7 @@
   "main": "index.js",
   "author": "fzheng",
   "dependencies": {
-    "express": "latest"
+    "express": "latest",
+    "body-parser": "latest"
   }
 }
