@@ -1,2 +1,2 @@
 # codiscope.test.javascript
-Test javascript repo
+Test javascript repo for triggers
