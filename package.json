@@ -6,6 +6,7 @@
   "author": "fzheng",
   "dependencies": {
     "express": "latest",
-    "body-parser": "latest"
+    "body-parser": "latest",
+    "express-session": "latest"
   }
 }
