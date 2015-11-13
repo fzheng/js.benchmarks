@@ -11,8 +11,8 @@ module.exports = function(app, session) {
       path: '/admin'
     }
   };
-  sess.cookie.httpOnly = false;
   app.use(session(sess));
+  sess.cookie.httpOnly = false;
 
   app.get('/explicitly_set_httponly', function(req, res) {
     res.session.cookie.httpOnly = false;
