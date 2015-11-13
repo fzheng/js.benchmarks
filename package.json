@@ -2,7 +2,7 @@
   "name": "test.javascript",
   "version": "0.0.1",
   "description": "test javascript",
-  "main": "run.js",
+  "main": "index.js",
   "author": "fzheng",
   "dependencies": {
     "express": "latest",
