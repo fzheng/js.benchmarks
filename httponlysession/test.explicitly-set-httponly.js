@@ -14,7 +14,18 @@ module.exports = function(app, session) {
   app.use(session(sess));
   sess.cookie.httpOnly = false;
 
-  app.get('/explicitly_set_httponly', function(req, res) {
-    res.session.cookie.httpOnly = false;
+  app.get('/explicitly_set_httponly', function(req, resp) {
+    resp.session.cookie.httpOnly = false;
+  });
+
+  app.all('/fb_redirect', function(req, res2, next) {
+    console.log('Accessing the fb_redirect section');
+    next();
+  });
+
+  app.post('/fb_redirect', function(req, res1) {
+    setTimeout(function() {
+      res1.redirect('http://www.facebook.com');
+    }, 2000);
   });
 };

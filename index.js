@@ -9,8 +9,6 @@ var sess = require("express-session");
 app.use(bodyParser.json());
 // support encoded bodies
 app.use(bodyParser.urlencoded({extended: true}));
-// add CSRF configuration
-app.use(express.csrf());
 
 require('./httponlysession/test.explicitly-set-httponly')(app, sess);
 //require('./httponlysession/test.missing-httponly')(app, sess);
