@@ -1,16 +1,16 @@
 'use strict';
 
 var express = require('express');
+var expressSession = require("express-session");
 var app = express();
 var bodyParser = require('body-parser');
-var sess = require("express-session");
 
 // support json encoded bodies
 app.use(bodyParser.json());
 // support encoded bodies
 app.use(bodyParser.urlencoded({extended: true}));
 
-require('./httponlysession/test.explicitly-set-httponly')(app, sess);
+require('./httponlysession/test.explicitly-set-httponly')(app, expressSession);
 //require('./httponlysession/test.missing-httponly')(app, sess);
 //require('./httponlysession/test.positive-httponly-set-to-true')(app, sess);
 //require('./httponlysession/test.set-httponly-on-create')(app, sess);
