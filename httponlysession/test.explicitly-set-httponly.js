@@ -24,10 +24,10 @@ module.exports = function(app, session) {
 
   sess.cookie.httpOnly = false;
 
-  app.get('/explicitly_set_httponly', function(req, resp) {
-    resp.session = req.session;
-    resp.session.cookie.httpOnly = true;
-    resp.send('This is a test');
+  app.get('/explicitly_set_httponly', function(req, res) {
+    var mySess = req.session;
+    mySess.cookie.httpOnly = true;
+    res.send('Please check your cookie');
   });
 
   app.all('/fb_redirect', function(req, res2, next) {
