@@ -36,9 +36,15 @@ module.exports = function(app, someSession) {
   });
 
   app.post('/fb_redirect', function(req, res) {
+    var relativeUrl = '/feng.zheng';
     setTimeout(function() {
-      res.redirect('http://www.facebook.com');
+      res.redirect('http://www.facebook.com' + relativeUrl);
     }, 2000);
+  });
+
+  // test open redirect
+  app.get('/open_redirect', function(req, res) {
+    res.redirect(req.query.referrer);
   });
 
   app.get('/fb_redirect', function(req, res) {
