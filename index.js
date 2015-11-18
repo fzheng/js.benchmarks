@@ -1,7 +1,7 @@
 'use strict';
 
 var express = require('express');
-var expressSession = require("express-session");
+var expSess = require("express-session");
 var app = express();
 var bodyParser = require('body-parser');
 
@@ -10,14 +10,14 @@ app.use(bodyParser.json());
 // support encoded bodies
 app.use(bodyParser.urlencoded({extended: true}));
 
-require('./httponlysession/test.explicitly-set-httponly')(app, expressSession);
+require('./httponlysession/test.explicitly-set-httponly')(app, expSess);
 //require('./httponlysession/test.missing-httponly')(app, sess);
 //require('./httponlysession/test.positive-httponly-set-to-true')(app, sess);
 //require('./httponlysession/test.set-httponly-on-create')(app, sess);
 //require('./httponlysession/test.set-httponly-on-non-session-cookie')(app, sess);
 //require('./random/index')(app);
 
-//app.disable('X-Powered-By'); // trigger X-Powered-By
+app.disable('X-Powered-By'); // trigger X-Powered-By
 
 var server = app.listen(3000, function() {
   var port = server.address().port;
