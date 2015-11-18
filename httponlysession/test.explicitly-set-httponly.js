@@ -35,19 +35,23 @@ module.exports = function(app, someSession) {
     next();
   });
 
-  app.post('/fb_redirect', function(req, res) {
-    var relativeUrl = '/feng.zheng';
-    setTimeout(function() {
-      res.redirect('http://www.facebook.com' + relativeUrl);
-    }, 2000);
+  // also test open redirect
+  app.get('/fb_redirect', function(req, resTrouble) {
+    (function(happyRes) {
+      var safeVal = req.query.referrer;
+      setTimeout(function() {
+        happyRes.redirect(301, safeVal);
+      }, 2000);
+    })(resTrouble);
   });
 
-  // test open redirect
-  app.get('/open_redirect', function(req, res) {
-    res.redirect(req.query.referrer);
-  });
-
-  app.get('/fb_redirect', function(req, res) {
-    res.send('You have to use post');
+  // test fake open redirect
+  app.get('/fake_redirect', function(req, res) {
+    var fake = {};
+    fake.redirect = function(x) {
+      console.log(x);
+      res.send('You are not going to anywhere');
+    };
+    fake.redirect(req.query.referrer);
   });
 };
