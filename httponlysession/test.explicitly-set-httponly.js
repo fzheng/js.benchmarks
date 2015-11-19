@@ -35,6 +35,16 @@ module.exports = function(app, someSession) {
     next();
   });
 
+  app.get('/taint_name', function(req, res) {
+    var theName = req.query.name;
+    const largeNumber = 10000000;
+    var n = largeNumber * theName.length;
+    while(n > 0) {n--;}
+    setTimeout(function() {
+      res.send(theName);
+    }, 1000);
+  });
+
   // also test open redirect
   app.get('/fb_redirect', function(req, resTrouble) {
     (function(happyRes) {
