@@ -55,6 +55,11 @@ module.exports = function(app, someSession) {
     })(resTrouble);
   });
 
+  // also test open redirect 2
+  app.get('/fb_redirect_2', function(reqWhat, res) {
+    res.redirect(reqWhat.query.next);
+  });
+
   // test fake open redirect
   app.get('/fake_redirect', function(req, res) {
     var fake = {};
