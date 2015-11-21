@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(app, session) {
+module.exports = function(app, sssss) {
   var sess = {
     secret: 'keyboard cat',
     key: "sessionId",
@@ -9,5 +9,9 @@ module.exports = function(app, session) {
     cookie: {}
   };
 
-  app.use(session(sess));
+  app.use(sssss(sess));
+
+  app.get('/', function(req, res) {
+    res.send('Hello World');
+  });
 };

@@ -2,7 +2,7 @@
 
 module.exports = function(app, session) {
   app.use(session({
-    secret:"s3Cur3",
+    secret: "s3Cur3",
     key: "sessionId",
     resave: true,
     saveUninitialized: true,
