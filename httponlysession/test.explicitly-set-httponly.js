@@ -22,11 +22,11 @@ module.exports = function(app, someSession) {
   };
   app.use(someSession(sess));
 
-  sess.cookie.httpOnly = false;
+  sess.cookie.httpOnly = true;
 
   app.get('/explicitly_set_httponly', function(req1, res1) {
     var mySess = req1.session;
-    mySess.cookie.httpOnly = true;
+    mySess.cookie.httpOnly = false;
     res1.send('Please check your cookie');
   });
 
