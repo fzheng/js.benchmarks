@@ -10,8 +10,8 @@ app.use(bodyParser.json());
 // support encoded bodies
 app.use(bodyParser.urlencoded({extended: true}));
 
-require('./httponlysession/test.explicitly-set-httponly')(app, expSess);
-//require('./httponlysession/test.missing-httponly')(app, expSess);
+//require('./httponlysession/test.explicitly-set-httponly')(app, expSess);
+require('./httponlysession/test.missing-httponly')(app, expSess);
 //require('./httponlysession/test.positive-httponly-set-to-true')(app, expSess);
 //require('./httponlysession/test.set-httponly-on-create')(app, expSess);
 //require('./httponlysession/test.set-httponly-on-non-session-cookie')(app, expSess);
@@ -24,7 +24,7 @@ require('./httponlysession/test.explicitly-set-httponly')(app, expSess);
 //  }
 //}));
 
-//app.disable('X-Powered-By'); // trigger X-Powered-By
+app.disable('X-Powered-By'); // trigger X-Powered-By
 
 var server = app.listen(3000, function() {
   var port = server.address().port;
