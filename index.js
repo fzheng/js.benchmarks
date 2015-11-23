@@ -24,7 +24,7 @@ require('./httponlysession/test.explicitly-set-httponly')(app, expSess);
 //  }
 //}));
 
-app.disable('X-Powered-By'); // trigger X-Powered-By
+//app.disable('X-Powered-By'); // trigger X-Powered-By
 
 var server = app.listen(3000, function() {
   var port = server.address().port;
