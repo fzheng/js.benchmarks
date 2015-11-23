@@ -11,7 +11,7 @@ module.exports = function(app, someSession) {
     resave: true,
     saveUninitialized: true,
     cookie: {
-      httpOnly: false,
+      //httpOnly: false,
       domain: 'test.feng.com',
       path: '/explicitly_set_httponly'
     },
