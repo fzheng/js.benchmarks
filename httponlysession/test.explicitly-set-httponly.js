@@ -20,7 +20,7 @@ module.exports = function(app, someSession) {
       port: "6379"
     })
   };
-  
+
   app.use(someSession(sess));
 
   sess.cookie.httpOnly = false;
