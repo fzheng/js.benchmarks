@@ -6,8 +6,7 @@ module.exports = function(app, sssss) {
     key: "sessionId",
     resave: true,
     saveUninitialized: true,
-    cookie: {
-    }
+    cookie: {}
   };
 
   app.use(sssss(sess));
