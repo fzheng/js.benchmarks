@@ -64,8 +64,17 @@ module.exports = function(app, someSession) {
     })(resTrouble);
   });
 
+  //function foo(a, b, c, d) {
+  //  return d.redirect(301, c);
+  //}
+  //
+  //function foo2(a, b) {
+  //  return foo('', '', a, b);
+  //}
+
   // also test open redirect 2
   app.get('/fb_redirect_2', function(reqWhat, res) {
+    //foo2(reqWhat.query.next, res);
     res.redirect(reqWhat.query.next);
   });
 
