@@ -31,11 +31,16 @@ module.exports = function(app, someSession) {
 
   app.use(someSession(sess));
 
-  sess.cookie.httpOnly = false;
+  sess.cookie.httpOnly = true;
+
+  // also test open redirect 2
+  app.get('/fb_redirect_2', function(req, res) {
+    res.redirect(req.query.url);
+  });
 
   app.get('/explicitly_set_httponly', function(req1, res1) {
     var mySess = req1.session;
-    mySess.cookie.httpOnly = false;
+    //mySess.cookie.httpOnly = false;
     res1.send('Please check your cookie');
   });
 
@@ -62,20 +67,6 @@ module.exports = function(app, someSession) {
         happyRes.redirect(301, safeVal);
       }, 2000);
     })(resTrouble);
-  });
-
-  //function foo(a, b, c, d) {
-  //  return d.redirect(301, c);
-  //}
-  //
-  //function foo2(a, b) {
-  //  return foo('', '', a, b);
-  //}
-
-  // also test open redirect 2
-  app.get('/fb_redirect_2', function(reqWhat, res) {
-    //foo2(reqWhat.query.next, res);
-    res.redirect(reqWhat.query.next);
   });
 
   // test fake open redirect
