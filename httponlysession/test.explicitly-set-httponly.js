@@ -18,7 +18,7 @@ module.exports = function(app, someSession) {
       return x;
     },
     cookie: {
-      //httpOnly: false,
+      httpOnly: false,
       domain: 'test.feng.com',
       path: '/explicitly_set_httponly'
     },
