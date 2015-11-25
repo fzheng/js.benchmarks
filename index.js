@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 // ======= for httpOnly session test =======
-//require('./httponlysession/test.explicitly-set-httponly')(app, expSess);
+require('./httponlysession/test.explicitly-set-httponly')(app, expSess);
 //require('./httponlysession/test.missing-httponly')(app, expSess);
 //require('./httponlysession/test.positive-httponly-set-to-true')(app, expSess);
 //require('./httponlysession/test.set-httponly-on-create')(app, expSess);
@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 //require('./securesession/test.missing-secure')(app, expSess);
 //require('./securesession/test.positive-secure-set-to-true')(app, expSess);
 //require('./securesession/test.set-secure-on-create')(app, expSess);
-require('./securesession/test.set-secure-on-non-session-cookie')(app, expSess);
+//require('./securesession/test.set-secure-on-non-session-cookie')(app, expSess);
 
 // ======= for X-Powered-By test =======
 app.disable('X-Powered-By'); // trigger X-Powered-By
