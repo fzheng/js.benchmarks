@@ -20,10 +20,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 // ======= for Open Redirect test =======
 //require('./openredirect/test.open.redirect')(app, expSess);
 //require('./openredirect/test.positive.with.map')(app, expSess);
-require('./openredirect/test.redirect-with-app.locals')(app, expSess);
+//require('./openredirect/test.redirect-with-app.locals')(app, expSess);
 
 // ======= for secure session test =======
-//require('./securesession/test.conditional-setting-secure')(app, expSess);
+require('./securesession/test.conditional-setting-secure')(app, expSess);
 //require('./securesession/test.explicitly-set-secure')(app, expSess);
 //require('./securesession/test.missing-secure')(app, expSess);
 //require('./securesession/test.positive-secure-set-to-true')(app, expSess);
