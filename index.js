@@ -27,8 +27,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 //require('./securesession/test.explicitly-set-secure')(app, expSess);
 //require('./securesession/test.missing-secure')(app, expSess);
 //require('./securesession/test.positive-secure-set-to-true')(app, expSess);
-require('./securesession/test.set-secure-on-create')(app, expSess);
-//require('./securesession/test.set-secure-on-non-session-cookie')(app, expSess);
+//require('./securesession/test.set-secure-on-create')(app, expSess);
+require('./securesession/test.set-secure-on-non-session-cookie')(app, expSess);
 
 // ======= for X-Powered-By test =======
 app.disable('X-Powered-By'); // trigger X-Powered-By
