@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 // ======= for httpOnly session test =======
-require('./httponlysession/test.explicitly-set-httponly')(app, expSess);
+//require('./httponlysession/test.explicitly-set-httponly')(app, expSess);
 //require('./httponlysession/test.missing-httponly')(app, expSess);
 //require('./httponlysession/test.positive-httponly-set-to-true')(app, expSess);
 //require('./httponlysession/test.set-httponly-on-create')(app, expSess);
@@ -32,6 +32,12 @@ require('./httponlysession/test.explicitly-set-httponly')(app, expSess);
 
 // ======= for X-Powered-By test =======
 app.disable('X-Powered-By'); // trigger X-Powered-By
+
+// ======= for secure session test =======
+require('./massassignment/test.insert-one-param')(app);
+//require('./massassignment/test.insert-two-params')(app);
+//require('./massassignment/test.positive-mongoose')(app);
+
 
 var server = app.listen(3000, function() {
   var port = server.address().port;
