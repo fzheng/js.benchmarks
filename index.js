@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 //require('./httponlysession/test.set-httponly-on-non-session-cookie')(app, expSess);
 
 // ======= for Open Redirect test =======
-//require('./openredirect/test.open.redirect')(app, expSess);
+require('./openredirect/test.open.redirect')(app, expSess);
 //require('./openredirect/test.positive.with.map')(app, expSess);
 //require('./openredirect/test.redirect-with-app.locals')(app, expSess);
 
@@ -34,7 +34,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.disable('X-Powered-By'); // trigger X-Powered-By
 
 // ======= for secure session test =======
-require('./massassignment/test.insert-one-param')(app);
+//require('./massassignment/test.insert-one-param')(app);
 //require('./massassignment/test.insert-two-params')(app);
 //require('./massassignment/test.positive-mongoose')(app);
 
