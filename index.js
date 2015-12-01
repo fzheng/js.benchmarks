@@ -35,8 +35,12 @@ app.disable('X-Powered-By'); // trigger X-Powered-By
 
 // ======= for MongoDB mass assignment test =======
 //require('./massassignment/test.insert-one-param')(app);
-require('./massassignment/test.insert-two-params')(app);
+//require('./massassignment/test.insert-two-params')(app);
 //require('./massassignment/test.positive-mongoose')(app);
+
+// ======= for server side PRNG test =======
+require('./randomserver/test.negative-random-server')(app, expSess);
+//require('./randomserver/test.positive-random-server')(app, expSess);
 
 
 var server = app.listen(3000, function() {
