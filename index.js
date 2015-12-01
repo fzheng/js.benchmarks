@@ -10,6 +10,9 @@ app.use(bodyParser.json());
 // support encoded bodies
 app.use(bodyParser.urlencoded({extended: true}));
 
+// ======= for X-Powered-By test =======
+app.disable('X-Powered-By'); // trigger X-Powered-By
+
 // ======= for httpOnly session test =======
 //require('./httponlysession/test.explicitly-set-httponly')(app, expSess);
 //require('./httponlysession/test.missing-httponly')(app, expSess);
@@ -30,16 +33,16 @@ app.use(bodyParser.urlencoded({extended: true}));
 //require('./securesession/test.set-secure-on-create')(app, expSess);
 //require('./securesession/test.set-secure-on-non-session-cookie')(app, expSess);
 
-// ======= for X-Powered-By test =======
-app.disable('X-Powered-By'); // trigger X-Powered-By
-
 // ======= for MongoDB mass assignment test =======
 //require('./massassignment/test.insert-one-param')(app);
 //require('./massassignment/test.insert-two-params')(app);
 //require('./massassignment/test.positive-mongoose')(app);
 
+// ======= for server side injection =======
+require('./serversideinjection/test.eval-injection')(app);
+
 // ======= for server side PRNG test =======
-require('./randomserver/test.negative-random-server')(app, expSess);
+//require('./randomserver/test.negative-random-server')(app, expSess);
 //require('./randomserver/test.positive-random-server')(app, expSess);
 
 
