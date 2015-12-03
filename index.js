@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.disable('X-Powered-By'); // trigger X-Powered-By
 
 // ======= for httpOnly session test =======
-require('./httponlysession/test.explicitly-set-httponly')(app, expSess);
+//require('./httponlysession/test.explicitly-set-httponly')(app, expSess);
 //require('./httponlysession/test.missing-httponly')(app, expSess);
 //require('./httponlysession/test.positive-httponly-set-to-true')(app, expSess);
 //require('./httponlysession/test.set-httponly-on-create')(app, expSess);
@@ -32,6 +32,11 @@ require('./httponlysession/test.explicitly-set-httponly')(app, expSess);
 //require('./securesession/test.positive-secure-set-to-true')(app, expSess);
 //require('./securesession/test.set-secure-on-create')(app, expSess);
 //require('./securesession/test.set-secure-on-non-session-cookie')(app, expSess);
+
+// ======= for MongoDB mass untrusted find input =======
+require('./untrustedfindinput/test.find-untrusted-input-dataflow')(app);
+//require('./untrustedfindinput/test.find-untrusted-input-from-req')(app);
+//require('./untrustedfindinput/test.find-with-untrusted-input')(app);
 
 // ======= for MongoDB mass assignment test =======
 //require('./massassignment/test.insert-one-param')(app);
