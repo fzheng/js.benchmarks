@@ -21,7 +21,7 @@ app.disable('X-Powered-By'); // trigger X-Powered-By
 //require('./httponlysession/test.set-httponly-on-non-session-cookie')(app, expSess);
 
 // ======= for Open Redirect test =======
-//require('./openredirect/test.open.redirect')(app, expSess);
+require('./openredirect/test.open.redirect')(app, expSess);
 //require('./openredirect/test.positive.with.map')(app, expSess);
 //require('./openredirect/test.redirect-with-app.locals')(app, expSess);
 
@@ -36,7 +36,7 @@ app.disable('X-Powered-By'); // trigger X-Powered-By
 // ======= for MongoDB mass untrusted find input =======
 //require('./untrustedfindinput/test.find-untrusted-input-dataflow')(app);
 //require('./untrustedfindinput/test.find-untrusted-input-from-req')(app);
-require('./untrustedfindinput/test.find-with-untrusted-input')(app);
+//require('./untrustedfindinput/test.find-with-untrusted-input')(app);
 
 // ======= for MongoDB mass assignment test =======
 //require('./massassignment/test.insert-one-param')(app);
