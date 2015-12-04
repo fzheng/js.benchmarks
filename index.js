@@ -10,8 +10,15 @@ app.use(bodyParser.json());
 // support encoded bodies
 app.use(bodyParser.urlencoded({extended: true}));
 
+// Register templating engine
+app.set("view engine", "html");
+app.set("views", __dirname + "/views");
+
 // ======= for X-Powered-By test =======
 app.disable('X-Powered-By'); // trigger X-Powered-By
+
+// ======= for insecure script test =======
+require('./insecurescript/test.insecure-script')(app);
 
 // ======= for httpOnly session test =======
 //require('./httponlysession/test.explicitly-set-httponly')(app, expSess);
@@ -21,7 +28,7 @@ app.disable('X-Powered-By'); // trigger X-Powered-By
 //require('./httponlysession/test.set-httponly-on-non-session-cookie')(app, expSess);
 
 // ======= for Open Redirect test =======
-require('./openredirect/test.open.redirect')(app, expSess);
+//require('./openredirect/test.open.redirect')(app, expSess);
 //require('./openredirect/test.positive.with.map')(app, expSess);
 //require('./openredirect/test.redirect-with-app.locals')(app, expSess);
 
@@ -49,7 +56,6 @@ require('./openredirect/test.open.redirect')(app, expSess);
 // ======= for server side PRNG test =======
 //require('./randomserver/test.negative-random-server')(app, expSess);
 //require('./randomserver/test.positive-random-server')(app, expSess);
-
 
 var server = app.listen(3000, function() {
   var port = server.address().port;
