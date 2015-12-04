@@ -18,7 +18,7 @@ app.set("views", __dirname + "/views");
 app.disable('X-Powered-By'); // trigger X-Powered-By
 
 // ======= for insecure script test =======
-require('./insecurescript/test.insecure-script')(app);
+//require('./insecurescript/test.insecure-script')(app);
 
 // ======= for httpOnly session test =======
 //require('./httponlysession/test.explicitly-set-httponly')(app, expSess);
@@ -43,7 +43,7 @@ require('./insecurescript/test.insecure-script')(app);
 // ======= for MongoDB mass untrusted find input =======
 //require('./untrustedfindinput/test.find-untrusted-input-dataflow')(app);
 //require('./untrustedfindinput/test.find-untrusted-input-from-req')(app);
-//require('./untrustedfindinput/test.find-with-untrusted-input')(app);
+require('./untrustedfindinput/test.find-with-untrusted-input')(app);
 
 // ======= for MongoDB mass assignment test =======
 //require('./massassignment/test.insert-one-param')(app);
