@@ -25,7 +25,7 @@ app.use(helmet);
 //require('./insecurescript/test.insecure-script')(app);
 
 // ======= for httpOnly session test =======
-//require('./httponlysession/test.explicitly-set-httponly')(app, expSess);
+require('./httponlysession/test.explicitly-set-httponly')(app, expSess);
 //require('./httponlysession/test.missing-httponly')(app, expSess);
 //require('./httponlysession/test.positive-httponly-set-to-true')(app, expSess);
 //require('./httponlysession/test.set-httponly-on-create')(app, expSess);
