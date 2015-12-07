@@ -12,8 +12,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 // Register templating engine
-app.set("view engine", "html");
-app.set("views", __dirname + "/views");
+//app.set("view engine", "html");
+//app.set("views", __dirname + "/views");
 
 app.use(helmet);
 //app.use(helmet.hidePoweredBy());
