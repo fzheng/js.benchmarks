@@ -4,6 +4,7 @@ var express = require('express');
 var expSess = require("express-session");
 var app = express();
 var bodyParser = require('body-parser');
+var helmet = require('helmet');
 
 // support json encoded bodies
 app.use(bodyParser.json());
@@ -14,8 +15,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "html");
 app.set("views", __dirname + "/views");
 
+app.use(helmet);
+//app.use(helmet.hidePoweredBy());
+
 // ======= for X-Powered-By test =======
-app.disable('X-Powered-By'); // trigger X-Powered-By
+//app.disable('X-Powered-By'); // trigger X-Powered-By
 
 // ======= for insecure script test =======
 //require('./insecurescript/test.insecure-script')(app);
@@ -43,7 +47,7 @@ app.disable('X-Powered-By'); // trigger X-Powered-By
 // ======= for MongoDB mass untrusted find input =======
 //require('./untrustedfindinput/test.find-untrusted-input-dataflow')(app);
 //require('./untrustedfindinput/test.find-untrusted-input-from-req')(app);
-require('./untrustedfindinput/test.find-with-untrusted-input')(app);
+//require('./untrustedfindinput/test.find-with-untrusted-input')(app);
 
 // ======= for MongoDB mass assignment test =======
 //require('./massassignment/test.insert-one-param')(app);
