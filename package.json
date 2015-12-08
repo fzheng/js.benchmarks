@@ -8,6 +8,8 @@
     "express": "latest",
     "express-session": "latest",
     "connect-redis": "latest",
-    "redis": "latest"
+    "redis": "latest",
+    "sendgrid": "latest",
+    "dotenv": "latest"
   }
 }
