@@ -17,3 +17,11 @@ emailService
       console.log(data);
     }
   });
+
+emailService.reset();
+
+emailService.send(function(err, data) {
+  if(data) {
+    console.log(data);
+  }
+});
