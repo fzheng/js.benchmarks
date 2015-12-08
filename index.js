@@ -4,7 +4,7 @@ var express = require('express');
 var expSess = require("express-session");
 var app = express();
 var bodyParser = require('body-parser');
-var helmet = require('helmet');
+var helmetImport = require('helmet');
 
 // support json encoded bodies
 app.use(bodyParser.json());
@@ -15,8 +15,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 //app.set("view engine", "html");
 //app.set("views", __dirname + "/views");
 
-app.use(helmet);
-//app.use(helmet.hidePoweredBy());
+//app.use(helmetImport.hidePoweredBy());
 
 // ======= for X-Powered-By test =======
 //app.disable('X-Powered-By'); // trigger X-Powered-By
