@@ -6,16 +6,12 @@ module.exports = function(app, session) {
   var rnd1 = Math.floor(Math.random() * (max - min) + min);
   app.use(session({
     sessionId: rnd1,
+    genid: function(req) {
+      return req.param.id * Math.random();
+    },
     cookie: {
       httpOnly: true,
       secure: true
     }
   }));
-
-  app.get('/', function(req, res) {
-    var rnd2 = (function(x) {
-      return x * Math.random() + Math.floor(new Date() / 1000);
-    })(10000);
-    res.send(rnd2);
-  });
 };
