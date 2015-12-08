@@ -4,7 +4,7 @@ var express = require('express');
 var expSess = require("express-session");
 var app = express();
 var bodyParser = require('body-parser');
-var helmetImport = require('helmet');
+//var helmetImport = require('helmet');
 
 // support json encoded bodies
 app.use(bodyParser.json());
@@ -15,16 +15,15 @@ app.use(bodyParser.urlencoded({extended: true}));
 //app.set("view engine", "html");
 //app.set("views", __dirname + "/views");
 
-//app.use(helmetImport.hidePoweredBy());
-
 // ======= for X-Powered-By test =======
-//app.disable('X-Powered-By'); // trigger X-Powered-By
+//app.use(helmetImport.hidePoweredBy());
+app.disable('X-Powered-By'); // trigger X-Powered-By
 
 // ======= for insecure script test =======
 //require('./insecurescript/test.insecure-script')(app);
 
 // ======= for httpOnly session test =======
-require('./httponlysession/test.explicitly-set-httponly')(app, expSess);
+//require('./httponlysession/test.explicitly-set-httponly')(app, expSess);
 //require('./httponlysession/test.missing-httponly')(app, expSess);
 //require('./httponlysession/test.positive-httponly-set-to-true')(app, expSess);
 //require('./httponlysession/test.set-httponly-on-create')(app, expSess);
@@ -57,7 +56,7 @@ require('./httponlysession/test.explicitly-set-httponly')(app, expSess);
 //require('./serversideinjection/test.eval-injection')(app);
 
 // ======= for server side PRNG test =======
-//require('./randomserver/test.negative-random-server')(app, expSess);
+require('./randomserver/test.negative-random-server')(app, expSess);
 //require('./randomserver/test.positive-random-server')(app, expSess);
 
 var server = app.listen(3000, function() {
