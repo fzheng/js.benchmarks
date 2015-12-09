@@ -4,6 +4,7 @@ logs
 
 # Ignore .env configuration files
 .env
+.env_example
 
 # Runtime data
 pids
