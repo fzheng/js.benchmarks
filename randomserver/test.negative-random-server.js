@@ -13,6 +13,7 @@ module.exports = function(app, session) {
   }));
 
   app.post('/', function(req, res) {
-    res.send(Math.random());
+    req.session.sessionId = max * Math.random();
+    res.send('PRNG test');
   });
 };
