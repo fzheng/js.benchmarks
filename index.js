@@ -54,7 +54,7 @@ app.disable('X-Powered-By'); // trigger X-Powered-By
 //require('./massassignment/test.insert-two-params')(app);
 //require('./massassignment/test.positive-mongoose')(app);
 
-// ======= for server side XXS test =======
+// ======= for server side XSS test =======
 require('./xss/test.xss_res_render')(app);
 
 // ======= for server side injection =======
