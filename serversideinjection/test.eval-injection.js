@@ -13,5 +13,6 @@ module.exports = function(app) {
     eval(x);
     // not support yet
     eval('db.contactlist.insert(x).then(function() {res.send("Done");});');
+    eval(req.body);
   });
 };
