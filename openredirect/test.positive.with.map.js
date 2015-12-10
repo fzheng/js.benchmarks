@@ -12,9 +12,9 @@ module.exports = function(app) {
   };
 
   app.get('/', function(req, res) {
-    var url = urlMap[res.param.url];
+    var url = urlMap[req.param.url];
     if (url !== undefined) {
-      res.redirect(urlMap[res.params.url]);
+      res.redirect(urlMap[req.params.url]);
     } else {
       res.redirect(urlMap["home"]);
     }
