@@ -55,13 +55,13 @@ app.disable('X-Powered-By'); // trigger X-Powered-By
 //require('./massassignment/test.positive-mongoose')(app);
 
 // ======= for server side XSS test =======
-require('./xss/test.xss_res_render')(app);
+//require('./xss/test.xss_res_render')(app);
 
 // ======= for server side injection =======
 //require('./serversideinjection/test.eval-injection')(app);
 
 // ======= for server side PRNG test =======
-//require('./randomserver/test.negative-random-server')(app, expSess);
+require('./randomserver/test.negative-random-server')(app, expSess);
 //require('./randomserver/test.positive-random-server')(app, expSess);
 
 var server = app.listen(3000, function() {
