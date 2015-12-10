@@ -10,6 +10,7 @@
     "connect-redis": "latest",
     "redis": "latest",
     "sendgrid": "latest",
-    "dotenv": "latest"
+    "dotenv": "latest",
+    "ejs": "latest"
   }
 }

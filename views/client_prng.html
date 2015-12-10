@@ -1,0 +1,27 @@
+<html>
+<head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- Additional javascript file required for makeRandom functions.-->
+    <script src='random_client_test.js'></script>
+    <script>
+        $(document).ready(function() {
+            $('#usrfld').val('userid' + makeRandom1());
+            $.ajax({
+                type: "POST",
+                url: '/submit',
+                data: {
+                    "usrfld": "userid" + makeRandom2()
+                },
+                success: null,
+                dataType: 'json'
+            });
+        });
+    </script>
+</head>
+
+<body>
+<form method='POST' action='/submit.html'>
+    <input id='usrfld' type='text' name='rndid'/>
+</form>
+</body>
+</html>

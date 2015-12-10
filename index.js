@@ -10,12 +10,15 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 // support encoded bodies
 app.use(bodyParser.urlencoded({extended: true}));
+
 // support csrf
-app.use(express.csrf());
+//app.use(express.csrf());
 
 // Register templating engine
-//app.set("view engine", "html");
-//app.set("views", __dirname + "/views");
+app.engine('html', require('ejs').renderFile);
+app.set("view engine", "html");
+app.set("views", __dirname + "/views");
+app.use(express.static(__dirname + '/static/js'));
 
 // ======= for X-Powered-By test =======
 //app.use(helmetImport.hidePoweredBy());
@@ -61,8 +64,11 @@ app.disable('X-Powered-By'); // trigger X-Powered-By
 //require('./serversideinjection/test.eval-injection')(app);
 
 // ======= for server side PRNG test =======
-require('./randomserver/test.negative-random-server')(app, expSess);
+//require('./randomserver/test.negative-random-server')(app, expSess);
 //require('./randomserver/test.positive-random-server')(app, expSess);
+
+// ======= for client side PRNG test =======
+require('./randomclient/test.negative-random-client')(app);
 
 var server = app.listen(3000, function() {
   var port = server.address().port;
