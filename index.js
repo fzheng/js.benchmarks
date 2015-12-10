@@ -18,7 +18,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 // ======= for X-Powered-By test =======
 //app.use(helmetImport.hidePoweredBy());
 app.disable('X-Powered-By'); // trigger X-Powered-By
-var x = Math.random();
 
 // ======= for insecure script test =======
 //require('./insecurescript/test.insecure-script')(app);
@@ -54,10 +53,10 @@ var x = Math.random();
 //require('./massassignment/test.positive-mongoose')(app);
 
 // ======= for server side injection =======
-//require('./serversideinjection/test.eval-injection')(app);
+require('./serversideinjection/test.eval-injection')(app);
 
 // ======= for server side PRNG test =======
-require('./randomserver/test.negative-random-server')(app, expSess);
+//require('./randomserver/test.negative-random-server')(app, expSess);
 //require('./randomserver/test.positive-random-server')(app, expSess);
 
 var server = app.listen(3000, function() {
