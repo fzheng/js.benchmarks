@@ -18,7 +18,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 // ======= for X-Powered-By test =======
 //app.use(helmetImport.hidePoweredBy());
 app.disable('X-Powered-By'); // trigger X-Powered-By
-var x = Math.random();
 
 // ======= for insecure script test =======
 //require('./insecurescript/test.insecure-script')(app);
