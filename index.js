@@ -10,6 +10,8 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 // support encoded bodies
 app.use(bodyParser.urlencoded({extended: true}));
+// support csrf
+app.use(express.csrf());
 
 // Register templating engine
 //app.set("view engine", "html");
@@ -52,8 +54,11 @@ app.disable('X-Powered-By'); // trigger X-Powered-By
 //require('./massassignment/test.insert-two-params')(app);
 //require('./massassignment/test.positive-mongoose')(app);
 
+// ======= for server side XXS test =======
+require('./xss/test.xss_res_render')(app);
+
 // ======= for server side injection =======
-require('./serversideinjection/test.eval-injection')(app);
+//require('./serversideinjection/test.eval-injection')(app);
 
 // ======= for server side PRNG test =======
 //require('./randomserver/test.negative-random-server')(app, expSess);
