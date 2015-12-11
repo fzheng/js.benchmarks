@@ -6,14 +6,14 @@ module.exports = function(app) {
   var db = pmongo('profile', ['profile']);
 
   app.post('/', function(req, res) {
-    if(req.params.case === 1) {
+    if(req.params.case === 0) {
       var str_1 = "I am an example input for find.";
       db.profile.find({name: str_1}, function(err, docs) {
         if(!err) {
           res.send("Postive Case" + docs);
         }
       });
-    } else if(req.params.case === 2) {
+    } else if(req.params.case === 1) {
       db.profile.find({name: req.params.name}, function(err, docs) {
         if(!err) {
           res.send("Use of untrusted input" + docs);
