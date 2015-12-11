@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.engine('html', require('ejs').renderFile);
 app.set("view engine", "html");
 app.set("views", __dirname + "/views");
-app.use(express.static(__dirname + '/static/js'));
+app.use(express.static(__dirname + '/static'));
 
 // ======= for X-Powered-By test =======
 //app.use(helmetImport.hidePoweredBy());
