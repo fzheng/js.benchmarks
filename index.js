@@ -15,10 +15,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 //app.use(express.csrf());
 
 // Register templating engine
-app.engine('html', require('ejs').renderFile);
-app.set("view engine", "html");
-app.set("views", __dirname + "/views");
-app.use(express.static(__dirname + '/static/js'));
+//app.engine('html', require('ejs').renderFile);
+//app.set("view engine", "html");
+//app.set("views", __dirname + "/views");
+//app.use(express.static(__dirname + '/static/js'));
 
 // ======= for X-Powered-By test =======
 //app.use(helmetImport.hidePoweredBy());
@@ -48,7 +48,7 @@ app.disable('X-Powered-By'); // trigger X-Powered-By
 //require('./securesession/test.set-secure-on-non-session-cookie')(app, expSess);
 
 // ======= for MongoDB mass untrusted find input =======
-//require('./untrustedfindinput/test.find-untrusted-input-dataflow')(app);
+require('./untrustedfindinput/test.find-untrusted-input-dataflow')(app);
 //require('./untrustedfindinput/test.find-untrusted-input-from-req')(app);
 //require('./untrustedfindinput/test.find-with-untrusted-input')(app);
 
@@ -68,7 +68,7 @@ app.disable('X-Powered-By'); // trigger X-Powered-By
 //require('./randomserver/test.positive-random-server')(app, expSess);
 
 // ======= for client side PRNG test =======
-require('./randomclient/test.negative-random-client')(app);
+//require('./randomclient/test.negative-random-client')(app);
 
 var server = app.listen(3000, function() {
   var port = server.address().port;
