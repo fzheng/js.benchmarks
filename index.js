@@ -49,8 +49,8 @@ app.disable('X-Powered-By'); // trigger X-Powered-By
 
 // ======= for MongoDB mass untrusted find input =======
 //require('./untrustedfindinput/test.find-untrusted-input-dataflow')(app);
-require('./untrustedfindinput/test.find-untrusted-input-from-req')(app);
-//require('./untrustedfindinput/test.find-with-untrusted-input')(app);
+//require('./untrustedfindinput/test.find-untrusted-input-from-req')(app);
+require('./untrustedfindinput/test.find-with-untrusted-input')(app);
 
 // ======= for MongoDB mass assignment test =======
 //require('./massassignment/test.insert-one-param')(app);
