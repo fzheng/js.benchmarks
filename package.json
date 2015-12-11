@@ -11,6 +11,7 @@
     "redis": "latest",
     "sendgrid": "latest",
     "dotenv": "latest",
-    "ejs": "latest"
+    "ejs": "latest",
+    "mongodb": "latest"
   }
 }
