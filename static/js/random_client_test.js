@@ -6,9 +6,10 @@ function makeRandom1() {
   return rnd1;
 }
 
-// Trigger 2 - RandomSource.getRandomValues()
+// Trigger 2 - RandomSource.getRandomValues
 function makeRandom2() {
   var array = new Uint32Array(1);
   var rnd2 = window.crypto.getRandomValues(array);
-  return rnd2[0];
+  var rnd3 = crypto.getRandomValues([]);
+  return rnd2[0] + rnd3[1];
 }

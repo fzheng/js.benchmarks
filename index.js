@@ -15,10 +15,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 //app.use(express.csrf());
 
 // Register templating engine
-//app.engine('html', require('ejs').renderFile);
-//app.set("view engine", "html");
-//app.set("views", __dirname + "/views");
-//app.use(express.static(__dirname + '/static'));
+app.engine('html', require('ejs').renderFile);
+app.set("view engine", "html");
+app.set("views", __dirname + "/views");
+app.use(express.static(__dirname + '/static'));
 
 // ======= for X-Powered-By test =======
 //app.use(helmetImport.hidePoweredBy());
@@ -28,7 +28,7 @@ app.disable('X-Powered-By'); // trigger X-Powered-By
 //require('./insecurescript/test.insecure-script')(app);
 
 // ======= for httpOnly session test =======
-require('./httponlysession/test.explicitly-set-httponly')(app, expSess);
+//require('./httponlysession/test.explicitly-set-httponly')(app, expSess);
 //require('./httponlysession/test.missing-httponly')(app, expSess);
 //require('./httponlysession/test.positive-httponly-set-to-true')(app, expSess);
 //require('./httponlysession/test.set-httponly-on-create')(app, expSess);
@@ -68,7 +68,7 @@ require('./httponlysession/test.explicitly-set-httponly')(app, expSess);
 //require('./randomserver/test.positive-random-server')(app, expSess);
 
 // ======= for client side PRNG test =======
-//require('./randomclient/test.negative-random-client')(app);
+require('./randomclient/test.negative-random-client')(app);
 
 var server = app.listen(3000, function() {
   var port = server.address().port;
