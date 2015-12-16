@@ -1,2 +1,2 @@
 # test.javascript
-Test javascript repo for fun
+Test javascript repo for JavaScript triggers
