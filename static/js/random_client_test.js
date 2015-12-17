@@ -6,7 +6,7 @@ function makeRandom1() {
   return rnd1;
 }
 
-// Trigger 2 - RandomSource.getRandomValues()
+// Trigger 2 - RandomSource.getRandomValues test
 function makeRandom2() {
   var array = new Uint32Array(1);
   var rnd2 = window.crypto.getRandomValues(array);
