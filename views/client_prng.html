@@ -1,8 +1,25 @@
 <html>
 <head>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <!-- Additional javascript file required for makeRandom functions.-->
-    <script src='js/random_client_test.js'></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
+        // Trigger 1 - Math.Random
+        function makeRandom1() {
+            var min = 1;
+            var max = 10;
+            var rnd1 = Math.floor(Math.random() * (max - min) + min);
+            return rnd1;
+        }
+
+        // Trigger 2 - RandomSource.getRandomValues test
+        function makeRandom2() {
+            var array = new Uint32Array(1);
+            var rnd2 = window.crypto.getRandomValues(array);
+            var rnd3 = crypto.getRandomValues([]);
+            console.log("window.crypto.getRandomValues(string)");
+            return rnd2[0] + rnd3[1];
+        }
+    </script>
+    <script src="//www.google-analytics.com/analytics.js"></script>
     <script>
         $(document).ready(function() {
             $('#usrfld').val('userid' + makeRandom1());
