@@ -147,7 +147,7 @@ angular.module("lookAroundApp.controllers", []).controller("ZipCodeFrmCtrl", [
   function($scope, $routeParams, $location, googleMap, scrollToElem) {
     /**
      * [ResultsTabCtrl]
-     * Controller resposible for the map view and list view tabs.
+     * Controller responsible for the map view and list view tabs.
      *
      * @param  {[type]} $scope
      * @param  {[type]} $routeParams
@@ -218,7 +218,7 @@ angular.module("lookAroundApp.controllers", []).controller("ZipCodeFrmCtrl", [
      * @param  {[type]} $window
      * @return {[type]}
      */
-      // checks if the url contains any valid zipcode
+    // checks if the url contains any valid zipcode
     $scope.applied = function() {
       return !!$routeParams.zipcode;
     };
