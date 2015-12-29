@@ -1,5 +1,6 @@
 # Logs
 logs
+logs/*
 *.log
 
 # Ignore .env configuration files
@@ -31,4 +32,12 @@ build/Release
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
 
+# AngularJS
+.c9revisions/
+!.gitkeep
+bower_components
+
+# System
+.DS_Store
 .idea
+tmp
