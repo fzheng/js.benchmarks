@@ -1,5 +1,7 @@
 'use strict';
 
+// email service only
+
 var config = require('./config');
 var EmailService = require('./lib/email_service');
 var emailService = new EmailService(config);
