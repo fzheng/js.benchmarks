@@ -53,15 +53,15 @@ app.disable('X-Powered-By'); // trigger X-Powered-By
 //require('./untrustedfindinput/test.find-with-untrusted-input')(app);
 
 // ======= for MongoDB mass assignment test =======
-require('./massassignment/test.insert-one-param')(app);
-require('./massassignment/test.insert-two-params')(app);
-require('./massassignment/test.positive-mongoose')(app);
+//require('./massassignment/test.insert-one-param')(app);
+//require('./massassignment/test.insert-two-params')(app);
+//require('./massassignment/test.positive-mongoose')(app);
 
 // ======= for server side XSS test =======
 //require('./xss/test.xss_res_render')(app);
 
 // ======= for server side injection =======
-//require('./serversideinjection/test.eval-injection')(app);
+require('./serversideinjection/test.eval-injection')(app);
 
 // ======= for server side PRNG test =======
 require('./randomserver/test.negative-random-server')(app, expSess);
