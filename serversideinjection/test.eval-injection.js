@@ -5,7 +5,7 @@ var pmongo = require('promised-mongo');
 module.exports = function(app) {
   var db = pmongo('contactlist', ['contactlist']);
 
-  app.post('/', function(req, res) {
+  app.post('/ssi', function(req, res) {
     // not support yet
     eval('console.log("Hello World");');
     var x = req.body;
