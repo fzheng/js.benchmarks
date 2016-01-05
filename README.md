@@ -20,5 +20,6 @@
 * [Mongo: Untrusted Input in Find](untrustedfindinput)
 
 ### State Management
+* [X-Powered-By](xpoweredby)
 * [HTTP Only Session](httponlysession)
 * [Secure Session](securesession)

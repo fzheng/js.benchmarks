@@ -6,13 +6,20 @@
   "author": "fzheng",
   "dependencies": {
     "body-parser": "latest",
-    "express": "latest",
-    "express-session": "latest",
+    "bson": "latest",
     "connect-redis": "latest",
-    "redis": "latest",
-    "sendgrid": "latest",
     "dotenv": "latest",
     "ejs": "latest",
-    "mongodb": "latest"
+    "express": "latest",
+    "express-session": "latest",
+    "helmet": "latest",
+    "mongodb": "latest",
+    "mongojs": "latest",
+    "mongoose": "latest",
+    "mongoose-mass-assign": "latest",
+    "promised-mongo": "latest",
+    "redis": "latest",
+    "sendgrid": "latest",
+    "validator": "latest"
   }
 }

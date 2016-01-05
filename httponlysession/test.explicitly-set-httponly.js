@@ -1,6 +1,6 @@
-'use strict';
-
 module.exports = function(app, someSession) {
+  'use strict';
+
   var sess = {
     secret:"s3Cur3",
     key: "sessionId",
