@@ -1,11 +1,10 @@
-var pmongo = require('promised-mongo');
-
 module.exports = function(app) {
   'use strict';
 
+  var pmongo = require('promised-mongo');
   var db = pmongo('profile', ['profile']);
 
-  app.post('/', function(req, res) {
+  app.post('/find_with_untrusted_input', function(req, res) {
     if(req.params.case === 0) {
       var str_1 = "I am an example input for find.";
       db.profile.find({name: str_1}, function(err, docs) {

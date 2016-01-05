@@ -1,11 +1,10 @@
-'use strict';
-
-var pmongo = require('promised-mongo');
-
 module.exports = function(app) {
+  'use strict';
+
+  var pmongo = require('promised-mongo');
   var db = pmongo('contactlist', ['contactlist']);
 
-  app.post('/ssi', function(req, res) {
+  app.post('/eval_injection', function(req, res) {
     // not support yet
     eval('console.log("Hello World");');
     var x = req.body;

@@ -11,7 +11,7 @@ module.exports = function(app) {
     "partner1": "http://partner1.com/"
   };
 
-  app.get('/', function(req, res) {
+  app.get('/open_redirect_positive_with_map', function(req, res) {
     var url = urlMap[req.param.url];
     if (url !== undefined) {
       res.redirect(urlMap[req.params.url]);

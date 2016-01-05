@@ -1,10 +1,11 @@
 //using Mongoose mass-assign package to create a schema for the model and using massAssign function
-
-var mongojs = require('mongojs');
-var mongoose = require('mongoose');
-var massAssign = require('mongoose-mass-assign');
-
 module.exports = function(app) {
+  'use strict';
+
+  var mongojs = require('mongojs');
+  var mongoose = require('mongoose');
+  var massAssign = require('mongoose-mass-assign');
+
   var UserSchema = new mongoose.Schema({
     name: String,
     email: String,
@@ -19,7 +20,7 @@ module.exports = function(app) {
   UserSchema.plugin(massAssign);
   var User = mongoose.model('User', UserSchema, 'contactlist');
 
-  app.post('/contactlist', function(req, res) {
+  app.post('/contactlist_positive_mongoose', function(req, res) {
     console.log("Insert " + req.body);
     var user = new User;
     user.massAssign({

@@ -1,10 +1,10 @@
-var MongoClient = require('mongodb').MongoClient;
-const url = "mongodb://localhost:27017/exampleDb";
-
 module.exports = function(app) {
   'use strict';
 
-  app.get('/', function(req, res) {
+  var MongoClient = require('mongodb').MongoClient;
+  const url = "mongodb://localhost:27017/exampleDb";
+
+  app.get('/find_untrusted_input_dataflow', function(req, res) {
     var yr = req.params.yr;
     // add or remove comma separated "key": values given your JSON collection
     var jsonQuery = {

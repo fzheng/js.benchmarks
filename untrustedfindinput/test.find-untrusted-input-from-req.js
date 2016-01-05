@@ -1,11 +1,10 @@
-var pmongo = require('promised-mongo');
-
 module.exports = function(app) {
   'use strict';
 
+  var pmongo = require('promised-mongo');
   var db = pmongo('report', ['report']);
 
-  app.post('/', function(req, res) {
+  app.post('/find_untrusted_input_from_req', function(req, res) {
     db.report.find({
       where: {
         identifier: req.param.identifier

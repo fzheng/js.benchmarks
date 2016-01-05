@@ -4,7 +4,7 @@ var express = require('express');
 var expSess = require("express-session");
 var app = express();
 var bodyParser = require('body-parser');
-//var helmetImport = require('helmet');
+var helmetImport = require('helmet');
 
 // support json encoded bodies
 app.use(bodyParser.json());
@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 // support csrf
-//app.use(express.csrf());
+app.use(express.csrf());
 
 // Register templating engine
 app.engine('html', require('ejs').renderFile);
@@ -22,22 +22,22 @@ app.use(express.static(__dirname + '/static'));
 
 // ======= for X-Powered-By test =======
 //app.use(helmetImport.hidePoweredBy());
-app.disable('X-Powered-By'); // trigger X-Powered-By
+//app.disable('X-Powered-By'); // trigger X-Powered-By
 
 // ======= for insecure script test =======
-//require('./insecurescript/test.insecure-script')(app);
+require('./insecurescript/test.insecure-script')(app);
 
 // ======= for httpOnly session test =======
-//require('./httponlysession/test.explicitly-set-httponly')(app, expSess);
+require('./httponlysession/test.explicitly-set-httponly')(app, expSess);
 //require('./httponlysession/test.missing-httponly')(app, expSess);
 //require('./httponlysession/test.positive-httponly-set-to-true')(app, expSess);
 //require('./httponlysession/test.set-httponly-on-create')(app, expSess);
 //require('./httponlysession/test.set-httponly-on-non-session-cookie')(app, expSess);
 
 // ======= for Open Redirect test =======
-//require('./openredirect/test.open.redirect')(app, expSess);
-//require('./openredirect/test.positive.with.map')(app, expSess);
-//require('./openredirect/test.redirect-with-app.locals')(app, expSess);
+require('./openredirect/test.open.redirect')(app, expSess);
+require('./openredirect/test.positive.with.map')(app, expSess);
+require('./openredirect/test.redirect-with-app.locals')(app, expSess);
 
 // ======= for secure session test =======
 //require('./securesession/test.conditional-setting-secure')(app, expSess);
@@ -48,17 +48,17 @@ app.disable('X-Powered-By'); // trigger X-Powered-By
 //require('./securesession/test.set-secure-on-non-session-cookie')(app, expSess);
 
 // ======= for MongoDB mass untrusted find input =======
-//require('./untrustedfindinput/test.find-untrusted-input-dataflow')(app);
-//require('./untrustedfindinput/test.find-untrusted-input-from-req')(app);
-//require('./untrustedfindinput/test.find-with-untrusted-input')(app);
+require('./untrustedfindinput/test.find-untrusted-input-dataflow')(app);
+require('./untrustedfindinput/test.find-untrusted-input-from-req')(app);
+require('./untrustedfindinput/test.find-with-untrusted-input')(app);
 
 // ======= for MongoDB mass assignment test =======
-//require('./massassignment/test.insert-one-param')(app);
-//require('./massassignment/test.insert-two-params')(app);
-//require('./massassignment/test.positive-mongoose')(app);
+require('./massassignment/test.insert-one-param')(app);
+require('./massassignment/test.insert-two-params')(app);
+require('./massassignment/test.positive-mongoose')(app);
 
 // ======= for server side XSS test =======
-//require('./xss/test.xss_res_render')(app);
+require('./xss/test.xss_res_render')(app);
 
 // ======= for server side injection =======
 require('./serversideinjection/test.eval-injection')(app);

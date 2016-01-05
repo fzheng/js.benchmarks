@@ -1,19 +1,22 @@
 // Test application saves a URL from user input into app.locals and then redirects to that address in one of the requests
 // Method POST /url saves the URL to app.locals.url
 // Method POST /next redirects to the saved URL
-var mongojs = require('mongojs');
-var db = mongojs('contactlist', ['contactlist']);
-var validator = require('validator');
 
 module.exports = function(app) {
-  app.get('/contactlist', function (req, res) {
+  'use strict';
+
+  var mongojs = require('mongojs');
+  var db = mongojs('contactlist', ['contactlist']);
+  var validator = require('validator');
+
+  app.get('/contactlist_redirect_with_app_locals', function (req, res) {
     console.log('I received a GET request');
     db.contactlist.find(function (err, docs) {
       res.json(docs);
     });
   });
 
-  app.post('/contactlist', function (req, res) {
+  app.post('/contactlist_redirect_with_app_locals', function (req, res) {
     console.log(req.body);
     if (validator.isNull(req.body.priority)) {
       req.body.priority = 'low';
@@ -23,7 +26,7 @@ module.exports = function(app) {
     });
   });
 
-  app.delete('/contactlist/:id', function (req, res) {
+  app.delete('/contactlist_redirect_with_app_locals/:id', function (req, res) {
     var id = req.params.id;
     console.log(id);
     db.contactlist.remove({_id: mongojs.ObjectId(id)}, function (err, doc) {
@@ -31,7 +34,7 @@ module.exports = function(app) {
     });
   });
 
-  app.get('/contactlist/:id', function (req, res) {
+  app.get('/contactlist_redirect_with_app_locals/:id', function (req, res) {
     var id = req.params.id;
     console.log(id);
     db.contactlist.findOne({_id: mongojs.ObjectId(id)}, function (err, doc) {
@@ -39,7 +42,7 @@ module.exports = function(app) {
     });
   });
 
-  app.put('/contactlist/:id', function (req, res) {
+  app.put('/contactlist_redirect_with_app_locals/:id', function (req, res) {
     var id = req.params.id;
     console.log(req.body.name);
     db.contactlist.findAndModify({
@@ -51,7 +54,7 @@ module.exports = function(app) {
     );
   });
 
-  app.post('/url',function(req, res){
+  app.post('/url_redirect_with_app_locals',function(req, res){
     //store URL from user input in app.locals
     app.locals.url = req.body.url;
 
@@ -65,7 +68,7 @@ module.exports = function(app) {
     }
   });
 
-  app.post('/next', function(req, res){
+  app.post('/next_redirect_with_app_locals', function(req, res){
     console.log("go to the next page "+app.locals.url);
 
     //redirect user to the value from app.locals.url

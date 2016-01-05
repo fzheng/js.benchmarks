@@ -11,7 +11,7 @@ module.exports = function(app, sssss) {
 
   app.use(sssss(sess));
 
-  app.get('/', function(req, res) {
+  app.get('/missing_httponly', function(req, res) {
     res.send('Hello World');
   });
 };
