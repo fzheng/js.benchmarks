@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 // Register templating engine
 app.engine('html', require('ejs').renderFile);
 app.set("view engine", "html");
-app.set("views", __dirname + "/views");
+app.set("views", __dirname + "/static/views");
 app.use(express.static(__dirname + '/static'));
 
 // ======= for X-Powered-By test =======
