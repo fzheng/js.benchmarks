@@ -8,7 +8,19 @@ var port = 3000; // process.env.PORT || 3000; // allow port to be set by environ
 
 var server = new Hapi.Server();
 server.app.key = 'secret_app_value_102';
-server.connection({port: port});
+server.connection({
+  port: port
+});
+const web = server.connection({
+  port: 8000,
+  host: 'example.com',
+  labels: ['web']
+});
+const admin = server.connection({
+  port: 8001,
+  host: 'example.com',
+  labels: ['admin']
+});
 
 server.route({
   method: ['GET', 'POST'],
@@ -42,6 +54,23 @@ server.route({
     }
   }
 });
+
+server.route([
+  {
+    method: 'GET',
+    path: '/route/num/1',
+    handler: function (request, reply) {
+      return reply('ok');
+    }
+  },
+  {
+    method: 'GET',
+    path: '/route/num/2',
+    handler: function (request, reply) {
+      return reply('ok');
+    }
+  }
+]);
 
 server.start(function () {
   console.log('Now Visit: http://localhost:' + port + '/YOURNAME');
