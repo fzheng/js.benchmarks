@@ -5,6 +5,7 @@
   "main": "index.js",
   "author": "fzheng",
   "dependencies": {
+    "babel-preset-react": "^6.3.13",
     "body-parser": "latest",
     "bson": "latest",
     "connect-redis": "latest",
@@ -18,6 +19,8 @@
     "mongoose": "latest",
     "mongoose-mass-assign": "latest",
     "promised-mongo": "latest",
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6",
     "redis": "latest",
     "sendgrid": "latest",
     "validator": "latest"
