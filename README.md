@@ -1,4 +1,7 @@
-# JavaScript Triggers Test
+#~~JavaScript Triggers Test (Deprecated)~~
+```
+$ cd jacks.engine/uEngine && npm test
+```
 
 ## Triggers
 ### Data Validation
