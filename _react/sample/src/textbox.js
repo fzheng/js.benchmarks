@@ -3,27 +3,25 @@
 class TextBoxList extends React.Component {
   constructor (props) {
     super(props);
-    this.state = {
-      count: 1
-    };
-    this.onAddClick = this.onAddClick.bind(this);
+    this.state = {count: 1};
+    this.add = this.add.bind(this);
   }
 
-  onAddClick () {
+  add () {
     this.setState({
       count: this.state.count + 1
     });
   }
 
   render () {
-    let items = [];
+    const items = [];
     for (let i = 0; i < this.state.count; i++) {
       items.push(<li><input type="text" placeholder="change me!"/></li>);
     }
     return (
       <ul>
         {items}
-        <input type="button" value="Add an item" onClick={this.onAddClick}/>
+        <input type="button" value="Add a TextBox" onClick={this.add}/>
       </ul>
     );
   }
