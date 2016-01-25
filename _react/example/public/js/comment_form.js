@@ -1,14 +1,13 @@
 'use strict';
 
 import React from "react";
+import BaseComponent from "./base";
 
-class CommentForm extends React.Component {
+class CommentForm extends BaseComponent {
   constructor (props) {
     super(props);
     this.state = {author: '', text: ''};
-    this.handleAuthorChange = this.handleAuthorChange.bind(this);
-    this.handleTextChange = this.handleTextChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this._bind('handleAuthorChange', 'handleTextChange', 'handleSubmit');
   }
 
   handleAuthorChange (e) {

@@ -2,16 +2,16 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
+import BaseComponent from "./base";
 import CommentList from "./comment_list";
 import CommentForm from "./comment_form";
+import $ from "jquery";
 
-class CommentBox extends React.Component {
+class CommentBox extends BaseComponent {
   constructor (props) {
     super(props);
     this.state = {data: []};
-    this.loadCommentsFromServer = this.loadCommentsFromServer.bind(this);
-    this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
-    this.componentDidMount = this.componentDidMount.bind(this);
+    this._bind('loadCommentsFromServer', 'handleCommentSubmit', 'componentDidMount');
   }
 
   loadCommentsFromServer () {

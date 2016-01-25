@@ -1,6 +1,7 @@
 'use strict';
 
 import React from "react";
+import marked from "marked";
 
 class Comment extends React.Component {
   rawMarkup () {
