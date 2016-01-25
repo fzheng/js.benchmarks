@@ -5,7 +5,7 @@ const webpack = require("webpack");
 const PROD = JSON.parse(process.env.PROD_DEV || "0");
 
 module.exports = {
-  context: __dirname + "/public",
+  context: __dirname + "/static",
   entry: "./index.js",
   output: {
     path: __dirname + "/dist",
