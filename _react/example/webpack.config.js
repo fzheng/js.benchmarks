@@ -6,7 +6,7 @@ const PROD = JSON.parse(process.env.PROD_DEV || "0");
 
 module.exports = {
   context: __dirname + "/public",
-  entry: "./js/comment_box.js",
+  entry: "./js/index.js",
   output: {
     path: __dirname + "/dist",
     filename: "app.js"

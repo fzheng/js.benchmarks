@@ -10,6 +10,7 @@ There are several simple server implementations included. They all serve static 
 
 ```sh
 npm install
+PROD_DEV=1 webpack
 node server.js
 ```
 
