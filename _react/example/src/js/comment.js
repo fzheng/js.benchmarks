@@ -5,7 +5,7 @@ import marked from "marked";
 
 class Comment extends React.Component {
   rawMarkup () {
-    let rawMarkup = marked(
+    const rawMarkup = marked(
       this.props.children.toString(),
       {
         sanitize: true

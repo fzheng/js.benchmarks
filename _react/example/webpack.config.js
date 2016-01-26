@@ -3,6 +3,7 @@
 const webpack = require("webpack");
 const autoprefixer = require("autoprefixer");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const PROD = JSON.parse(process.env.PROD_DEV || "0");
 const path = require("path");
 const sassLoaders = [
@@ -37,12 +38,10 @@ module.exports = {
     path: path.join(__dirname, "./dist"),
     publicPath: '/dist'
   },
-  plugins: PROD ? [
-    new webpack.optimize.UglifyJsPlugin({minimize: true}),
-    new ExtractTextPlugin('[name].css')
-  ]: [
-    new ExtractTextPlugin('[name].css')
-  ],
+  plugins: (PROD ? [new webpack.optimize.UglifyJsPlugin({minimize: true})]: []).concat([
+    new ExtractTextPlugin('[name].css'),
+    new HtmlWebpackPlugin()
+  ]),
   postcss: [
     autoprefixer({
       browsers: ['last 2 versions']
