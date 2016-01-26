@@ -1,33 +1,34 @@
 {
-  "name": "react-example",
-  "version": "0.0.1",
-  "description": "React is an open source JavaScript library providing a view for data rendered as HTML",
-  "main": "server/index.js",
-  "dependencies": {
-    "body-parser": "^1.4.3",
-    "express": "^4.4.5",
-    "jquery": "^2.2.0",
-    "marked": "^0.3.5",
-    "react": "^0.14.6",
-    "react-dom": "^0.14.6"
-  },
-  "devDependencies": {
-    "autoprefixer": "^6.3.1",
-    "babel-core": "^6.4.5",
-    "babel-loader": "^6.2.1",
-    "babel-preset-es2015": "^6.3.13",
-    "babel-preset-react": "^6.3.13",
-    "css-loader": "^0.23.1",
-    "extract-text-webpack-plugin": "^1.0.1",
-    "html-webpack-plugin": "^2.7.2",
-    "node-sass": "^3.4.2",
-    "postcss-loader": "^0.8.0",
-    "sass-loader": "^3.1.2",
-    "style-loader": "^0.13.0",
-    "webpack": "^1.12.12"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/index.js"
-  }
+    "name": "react-example",
+    "version": "0.0.1",
+    "description": "React is an open source JavaScript library providing a view for data rendered as HTML",
+    "main": "server/index.js",
+    "dependencies": {
+        "body-parser": "^1.4.3",
+        "express": "^4.4.5",
+        "jquery": "^2.2.0",
+        "marked": "^0.3.5",
+        "react": "^0.14.6",
+        "react-dom": "^0.14.6"
+    },
+    "devDependencies": {
+        "autoprefixer": "^6.3.1",
+        "babel-core": "^6.4.5",
+        "babel-loader": "^6.2.1",
+        "babel-preset-es2015": "^6.3.13",
+        "babel-preset-react": "^6.3.13",
+        "css-loader": "^0.23.1",
+        "extract-text-webpack-plugin": "^1.0.1",
+        "html-webpack-plugin": "^2.7.2",
+        "node-sass": "^3.4.2",
+        "postcss-loader": "^0.8.0",
+        "sass-loader": "^3.1.2",
+        "style-loader": "^0.13.0",
+        "webpack": "^1.12.12"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "PROD_DEV=1 webpack",
+        "start": "npm run build && node server/index.js"
+    }
 }

@@ -35,13 +35,18 @@ module.exports = {
   },
   output: {
     filename: '[name].js',
-    path: path.join(__dirname, "./dist"),
-    publicPath: '/dist'
+    path: path.join(__dirname, "./dist")
   },
-  plugins: (PROD ? [new webpack.optimize.UglifyJsPlugin({minimize: true})]: []).concat([
-    new ExtractTextPlugin('[name].css'),
-    new HtmlWebpackPlugin()
-  ]),
+  plugins: (
+    PROD ? [new webpack.optimize.UglifyJsPlugin({minimize: true})]: []).concat([
+      new ExtractTextPlugin('[name].css'),
+      new HtmlWebpackPlugin({
+        title: "React Test Drive",
+        template: "./src/html/template.html",
+        inject: 'body'
+      })
+    ]
+  ),
   postcss: [
     autoprefixer({
       browsers: ['last 2 versions']
