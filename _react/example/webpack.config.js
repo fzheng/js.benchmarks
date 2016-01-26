@@ -1,42 +1,55 @@
 'use strict';
 
 const webpack = require("webpack");
-
+const autoprefixer = require("autoprefixer");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const PROD = JSON.parse(process.env.PROD_DEV || "0");
+const path = require("path");
+const sassLoaders = [
+  "css-loader",
+  "postcss-loader",
+  "sass-loader?indentedSyntax=sass&includePaths[]=" + path.resolve(__dirname, "./src")
+];
 
 module.exports = {
-  context: __dirname + "/static",
-  entry: "./index.js",
-  output: {
-    path: __dirname + "/dist",
-    filename: "app.js"
+  entry: {
+    app: ['./src/index']
   },
   module: {
     loaders: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel',
+        loader: 'babel-loader',
         query: {
-          compact: false,
           cacheDirectory: true,
-          presets: ['react', 'es2015']
+          presets: ["react", "es2015"]
         }
       },
       {
-        test: /\.jsx$/,
-        loaders: ['babel-loader']
-      },
-      {
-        test: /\.css$/,
-        loader: "style!css"
+        test: /\.sass$/,
+        loader: ExtractTextPlugin.extract("style-loader", sassLoaders.join("!"))
       }
     ]
   },
-  resolve: {
-    extensions: ['', '.js', '.jsx']
+  output: {
+    filename: '[name].js',
+    path: path.join(__dirname, "./dist"),
+    publicPath: '/dist'
   },
   plugins: PROD ? [
-    new webpack.optimize.UglifyJsPlugin({minimize: true})
-  ]: []
+    new webpack.optimize.UglifyJsPlugin({minimize: true}),
+    new ExtractTextPlugin('[name].css')
+  ]: [
+    new ExtractTextPlugin('[name].css')
+  ],
+  postcss: [
+    autoprefixer({
+      browsers: ['last 2 versions']
+    })
+  ],
+  resolve: {
+    extensions: ['', '.js', '.sass'],
+    modulesDirectories: ['src', 'node_modules']
+  }
 };
