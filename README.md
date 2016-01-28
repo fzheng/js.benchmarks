@@ -1,4 +1,5 @@
 #~~JavaScript Triggers Test (Deprecated)~~
+triggers have been added into uEngine's unit test
 ```
 $ cd jacks.engine/uEngine && npm test
 ```
