@@ -33,7 +33,23 @@ server.route({
       }
     },
     handler: function (request, reply) {
-      reply('Hai ' + request.params.name + '!');
+      reply('Hi ' + request.params.name + '!');
+    }
+  }
+});
+
+server.route({
+  method: 'DELETE',
+  path: '/{name*}',
+  config: {
+    // validate will ensure YOURNAME is valid before replying to your request
+    validate: {
+      params: {
+        name: Joi.string().max(40).min(2).alphanum()
+      }
+    },
+    handler: function (request, reply) {
+      reply('Goodbye ' + request.params.name + '!');
     }
   }
 });
@@ -47,14 +63,15 @@ server.route({
       params: {
         id: Joi.string().max(40).min(2).alphanum()
       }
-    },
-    handler: function (request, reply) {
-      // until we implement authentication we are simply returning a 401:
-      reply(Boom.unauthorized('Please log-in to see that'));
     }
+  },
+  handler: function (request, reply) {
+    // until we implement authentication we are simply returning a 401:
+    reply(Boom.unauthorized('Please log-in to see that'));
   }
 });
 
+// this is an edge case
 server.route([
   {
     method: 'GET',
@@ -73,7 +90,7 @@ server.route([
 ]);
 
 server.start(function () {
-  console.log('Now Visit: http://localhost:' + port + '/YOURNAME');
+  console.log('Now Visit: http://localhost:' + port + '/{YOURNAME}');
 });
 
 module.exports = server;

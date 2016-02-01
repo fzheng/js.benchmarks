@@ -1,6 +1,5 @@
 // Base routes for default index/root path, about page, 404 error pages, and others..
 exports.register = function(server, options, next){
-
     server.route([
         {
             method: 'GET',
