@@ -8,7 +8,8 @@ var server = new Hapi.Server();
 
 // Setup the server with a host and port
 server.connection({
-  port: parseInt(process.env.PORT, 10) || 3000, host: '0.0.0.0'
+  port: parseInt(process.env.PORT, 10) || 3000,
+  host: '0.0.0.0'
 });
 
 // Setup the views engine and folder
@@ -32,14 +33,25 @@ server.register([
     register: require("good"),
     options: {
       opsInterval: 5000,
-      reporters: [{
-        reporter: require('good-console'),
-        args: [{ops: '*', request: '*', log: '*', response: '*', 'error': '*'}]
-      }]
+      reporters: [
+        {
+          reporter: require('good-console'),
+          args: [
+            {
+              ops: '*',
+              request: '*',
+              log: '*',
+              response: '*',
+              'error': '*'
+            }
+          ]
+        }
+      ]
     }
   },
   {
-    register: require("hapi-assets"), options: require('./assets.js')
+    register: require("hapi-assets"),
+    options: require('./assets.js')
   },
   {
     register: require("hapi-named-routes")
