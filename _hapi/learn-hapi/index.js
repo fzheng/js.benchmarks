@@ -71,23 +71,30 @@ server.route({
   }
 });
 
-// this is an edge case
-server.route([
-  {
-    method: 'GET',
-    path: '/route/num/1',
-    handler: function (request, reply) {
-      return reply('ok');
-    }
-  },
-  {
-    method: 'GET',
-    path: '/route/num/2',
-    handler: function (request, reply) {
-      return reply('ok');
-    }
-  }
-]);
+//// this is an edge case
+//server.route([
+//  {
+//    method: 'GET',
+//    path: '/route/num/2',
+//    handler: function (request, reply) {
+//      return reply('ok 2');
+//    }
+//  },
+//  {
+//    method: 'GET',
+//    path: '/route/num/{id*}',
+//    config: {
+//      validate: {
+//        params: {
+//          id: Joi.string().max(10).min(3).alphanum()
+//        }
+//      }
+//    },
+//    handler: function (request, reply) {
+//      return reply('ok 1');
+//    }
+//  }
+//]);
 
 server.start(function () {
   console.log('Now Visit: http://localhost:' + port + '/{YOURNAME}');
