@@ -1,3 +1,5 @@
+'use strict';
+
 // Start this app from your command line with: node hellovalidate.js
 // then visit: http://localhost:3000/YOURNAME
 
@@ -23,7 +25,10 @@ const admin = server.connection({
 });
 
 server.route({
-  method: ['GET', 'POST'],
+  method: [
+    'GET',
+    'POST'
+  ],
   path: '/{name*}',
   config: {
     // validate will ensure YOURNAME is valid before replying to your request
@@ -71,30 +76,30 @@ server.route({
   }
 });
 
-//// this is an edge case
-//server.route([
-//  {
-//    method: 'GET',
-//    path: '/route/num/2',
-//    handler: function (request, reply) {
-//      return reply('ok 2');
-//    }
-//  },
-//  {
-//    method: 'GET',
-//    path: '/route/num/{id*}',
-//    config: {
-//      validate: {
-//        params: {
-//          id: Joi.string().max(10).min(3).alphanum()
-//        }
-//      }
-//    },
-//    handler: function (request, reply) {
-//      return reply('ok 1');
-//    }
-//  }
-//]);
+// this is an edge case
+server.route([
+  {
+    method: 'GET',
+    path: '/route/num/2',
+    handler: function (request, reply) {
+      return reply('ok 2');
+    }
+  },
+  {
+    method: 'GET',
+    path: '/route/num/{id*}',
+    config: {
+      validate: {
+        params: {
+          id: Joi.string().max(10).min(3).alphanum()
+        }
+      }
+    },
+    handler: function (request, reply) {
+      return reply('ok 1');
+    }
+  }
+]);
 
 server.start(function () {
   console.log('Now Visit: http://localhost:' + port + '/{YOURNAME}');
