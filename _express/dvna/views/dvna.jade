@@ -1,0 +1,69 @@
+extends layout
+
+block subheader
+  hr
+  span.credits.center
+    | Project maintained by
+    a(href='https://github.com/quantumfoam', target='_blank')  quantumfoam
+    |  with contributions from some awesome
+    a(href='https://github.com/quantumfoam/DVNA/graphs/contributors', target='_blank')  developers
+
+block content
+  p
+    |  Click on the challenge link to start learning about each vulnerability and attempt to exploit each bug class. Each vulnerability contains vulnerable sample code, hints, and an input box for submitting a challenge token to demonstrate an understanding of the issue.
+
+  each vulnerability in vulnerabilities
+    h2= vulnerability.title
+    a(href= vulnerability.path + '/challenge/') Challenge
+    span= ' Completed: ' + (!!vulnerability.passed)
+
+    p=vulnerability.description
+
+  h2 How to contribute?
+
+  p
+    | Inline code would look a little different.
+    code We want you to see
+    |  where it is, but its going to be a little less noticeable. It might also be as simple as
+    code :hover
+    |  and as unique as
+    code :first-child
+    | . It is up to you.
+
+  .highlight
+    pre
+      code(class='javascript').
+        var express = require('express');
+        var DVNA = express();
+
+        DVNA.get('/', function(req, res) {
+          // Your example
+        });
+
+        module.exports = {
+          title: 'name',
+          server: DVNA
+        }
+  :markdown
+    ## Disclaimer
+
+    We do not take responsibility for the way in which any one uses this application (DVNA). We have made the purposes of the application clear and it should not be used maliciously. We have given warnings and taken measures to prevent users from installing DVNA on to live web servers. If your web server is compromised via an installation of DVNA it is not our responsibility it is the responsibility of the person/s who uploaded and installed it.
+
+    - - -
+
+    ## License
+
+    This file is part of Damn Vulnerable Node Application (DVNA).
+
+    Damn Vulnerable Node Application (DVNA) is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Damn Vulnerable Node Application (DVNA) is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Damn Vulnerable Node Application (DVNA).  If not, see http://www.gnu.org/licenses/.
