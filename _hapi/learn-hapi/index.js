@@ -5,6 +5,7 @@
 
 var Hapi = require('hapi');
 var Joi = require('joi');
+var path = require('path');
 var Boom = require('boom');
 var port = 3000; // process.env.PORT || 3000; // allow port to be set by environment
 
@@ -31,6 +32,31 @@ server.state('data', {
   encoding: 'base64json',
   clearInvalid: false, // remove invalid cookies
   strictHeader: true // don't allow violations of RFC 6265
+});
+
+server.register(require('inert'), function (err) {
+  if (err) {
+    throw err;
+  }
+
+  server.route({
+    method: 'GET',
+    path: '/document1/{user}/{file}',
+    handler: function (request, reply) {
+      var _path = path.join(request.params.user, request.params.file);
+      reply.file(_path);
+    }
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/document2/{user}/{file}',
+    handler: {
+      file: function(request) {
+        return path.join(request.params.user, request.params.file);
+      }
+    }
+  });
 });
 
 server.route({
