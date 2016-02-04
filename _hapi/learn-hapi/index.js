@@ -5,7 +5,7 @@
 
 var Hapi = require('hapi');
 var Joi = require('joi');
-var path = require('path');
+var _path = require('path');
 var Boom = require('boom');
 var port = 3000; // process.env.PORT || 3000; // allow port to be set by environment
 
@@ -14,11 +14,13 @@ server.app.key = 'secret_app_value_102';
 server.connection({
   port: port
 });
+
 const web = server.connection({
   port: 8000,
   host: 'example.com',
   labels: ['web']
 });
+
 const admin = server.connection({
   port: 8001,
   host: 'example.com',
@@ -43,17 +45,24 @@ server.register(require('inert'), function (err) {
     method: 'GET',
     path: '/document1/{user}/{file}',
     handler: function (request, reply) {
-      var _path = path.join(request.params.user, request.params.file);
-      reply.file(_path);
+      reply.file(_path.join(request.params.user, request.params.file));
     }
   });
 
   server.route({
     method: 'GET',
-    path: '/document2/{user}/{file}',
+    path: '/document2/{file}',
+    handler: function (request, reply) {
+      reply.file(request.params.file);
+    }
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/document3/{user}/{file}',
     handler: {
       file: function(request) {
-        return path.join(request.params.user, request.params.file);
+        return _path.join(request.params.user, request.params.file);
       }
     }
   });
