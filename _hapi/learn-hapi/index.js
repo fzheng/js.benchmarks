@@ -66,6 +66,16 @@ server.register(require('inert'), function (err) {
       }
     }
   });
+
+  server.route({
+    method: 'GET',
+    path: '/document4/{file}',
+    handler: {
+      file: function(request) {
+        return request.params.file;
+      }
+    }
+  });
 });
 
 server.route({
