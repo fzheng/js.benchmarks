@@ -24,6 +24,15 @@ const admin = server.connection({
   labels: ['admin']
 });
 
+server.state('data', {
+  ttl: null,
+  isSecure: true,
+  isHttpOnly: true,
+  encoding: 'base64json',
+  clearInvalid: false, // remove invalid cookies
+  strictHeader: true // don't allow violations of RFC 6265
+});
+
 server.route({
   method: [
     'GET',
