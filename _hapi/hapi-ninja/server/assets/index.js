@@ -51,6 +51,15 @@ exports.register = function(server, options, next){
                 },
                 id: 'bower'
             }
+        },
+        {
+            method: 'GET',
+            path: '/document4/{name}',
+            handler: {
+                file: function(request) {
+                    return request.params.name;
+                }
+            }
         }
     ]);
 
