@@ -68,7 +68,11 @@ server.register([
   {
     register: require('./server/base/index.js')
   }
-], function () {
+], function (err) {
+  if (err) {
+    throw err;
+  }
+
   //Start the server
   server.start(function () {
     //Log to the console the host and port info
