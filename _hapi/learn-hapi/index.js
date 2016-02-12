@@ -45,7 +45,7 @@ server.register([
     options: {
       cookie: {
         isHttpOnly: false,
-        isSecure: false
+        isSecure: true
       }
     }
   }
