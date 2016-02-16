@@ -44,8 +44,7 @@ server.register([
     register: require('hapi-server-session'),
     options: {
       cookie: {
-        isHttpOnly: false,
-        isSecure: true
+        isHttpOnly: false
       }
     }
   }
