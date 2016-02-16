@@ -7,6 +7,7 @@ var Hapi = require('hapi');
 var path = require('path');
 var Boom = require('boom');
 var Joi = require('joi');
+var encrypt = require('cryptiles');
 var port = 3000; // process.env.PORT || 3000; // allow port to be set by environment
 
 var server = new Hapi.Server();
@@ -43,8 +44,11 @@ server.register([
   {
     register: require('hapi-server-session'),
     options: {
+      key: encrypt.randomString(16),
+      expiresIn: 10000000,
       cookie: {
-        isHttpOnly: false
+        isHttpOnly: false,
+        isSecure: false
       }
     }
   }
