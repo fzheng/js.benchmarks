@@ -7,34 +7,13 @@ var Hapi = require('hapi');
 var path = require('path');
 var Boom = require('boom');
 var Joi = require('joi');
-var youEncrypt = require('cryptiles');
+//var youEncrypt = require('cryptiles');
 var port = 3000; // process.env.PORT || 3000; // allow port to be set by environment
 
 var server = new Hapi.Server();
 server.app.key = 'secret_app_value_102';
 server.connection({
   port: port
-});
-
-const web = server.connection({
-  port: 8000,
-  host: 'example.com',
-  labels: ['web']
-});
-
-const admin = server.connection({
-  port: 8001,
-  host: 'example.com',
-  labels: ['admin']
-});
-
-server.state('data', {
-  ttl: null,
-  isSecure: true,
-  isHttpOnly: true,
-  encoding: 'base64json',
-  clearInvalid: false, // remove invalid cookies
-  strictHeader: true // don't allow violations of RFC 6265
 });
 
 server.register([
@@ -47,7 +26,8 @@ server.register([
       //key: encrypt.randomString(16),
       //expiresIn: 10000000,
       cookie: {
-        isHttpOnly: true
+        isHttpOnly: false,
+        isSecure: false
       }
     }
   }
@@ -167,6 +147,15 @@ server.register([
   //    }
   //  }
   //]);
+});
+
+server.state('data', {
+  ttl: null,
+  isSecure: true,
+  isHttpOnly: true,
+  encoding: 'base64json',
+  clearInvalid: false, // remove invalid cookies
+  strictHeader: true // don't allow violations of RFC 6265
 });
 
 server.start(function () {
