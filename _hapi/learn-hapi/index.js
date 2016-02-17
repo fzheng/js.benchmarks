@@ -7,7 +7,7 @@ var Hapi = require('hapi');
 var path = require('path');
 var Boom = require('boom');
 var Joi = require('joi');
-var encrypt = require('cryptiles');
+var youEncrypt = require('cryptiles');
 var port = 3000; // process.env.PORT || 3000; // allow port to be set by environment
 
 var server = new Hapi.Server();
