@@ -47,8 +47,7 @@ server.register([
       //key: encrypt.randomString(16),
       //expiresIn: 10000000,
       cookie: {
-        isHttpOnly: false,
-        //isSecure: false
+        isHttpOnly: true
       }
     }
   }
