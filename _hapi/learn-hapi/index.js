@@ -44,10 +44,11 @@ server.register([
   {
     register: require('hapi-server-session'),
     options: {
-      key: encrypt.randomString(16), expiresIn: 10000000,
+      //key: encrypt.randomString(16),
+      //expiresIn: 10000000,
       cookie: {
         isHttpOnly: false,
-        isSecure: false
+        //isSecure: false
       }
     }
   }
