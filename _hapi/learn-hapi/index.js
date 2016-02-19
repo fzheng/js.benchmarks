@@ -24,10 +24,10 @@ server.register([
   {
     register: require('hapi-server-session'),
     options: {
-      key: cryptiles.randomString(16),
-      expiresIn: 100000,
+      //key: cryptiles.randomString(16),
+      //expiresIn: 100000,
       cookie: {
-        isHttpOnly: true,
+        isHttpOnly: false,
         isSecure: true
       }
     }
