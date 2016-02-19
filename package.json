@@ -2,7 +2,7 @@
   "name": "test.javascript",
   "version": "0.0.1",
   "description": "test javascript",
-  "main": "index.js",
+  "main": "_hapi/learn-hapi/index.js",
   "author": "fzheng",
   "dependencies": {
     "babel-preset-react": "^6.3.13",
