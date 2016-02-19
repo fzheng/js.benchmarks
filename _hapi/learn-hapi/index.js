@@ -37,7 +37,7 @@ server.register([
     throw err;
   }
 
-  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  inert cases >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  //// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  inert cases >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
   //server.route({
   //  method: 'GET',
   //  path: '/document1/{user}/{file}',
@@ -158,82 +158,82 @@ server.register([
     }
   });
 
-  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  generic cases >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-  server.route({
-    method: [
-      'GET',
-      'POST'
-    ],
-    path: '/{name*}',
-    config: {
-      // validate will ensure YOURNAME is valid before replying to your request
-      validate: {
-        params: {
-          name: Joi.string().max(40).min(2).alphanum()
-        }
-      },
-      handler: function (request, reply) {
-        reply('Hi ' + request.params.name + '!');
-      }
-    }
-  });
-
-  server.route({
-    method: 'DELETE',
-    path: '/{name*}',
-    config: {
-      // validate will ensure YOURNAME is valid before replying to your request
-      validate: {
-        params: {
-          name: Joi.string().max(40).min(2).alphanum()
-        }
-      },
-      handler: function (request, reply) {
-        reply('Goodbye ' + request.params.name + '!');
-      }
-    }
-  });
-
-  server.route({
-    method: 'GET',
-    path: '/photo/{id*}',
-    config: {
-      // validate will ensure YOURNAME is valid before replying to your request
-      validate: {
-        params: {
-          id: Joi.string().max(40).min(2).alphanum()
-        }
-      }
-    },
-    handler: function (request, reply) {
-      // until we implement authentication we are simply returning a 401:
-      reply(Boom.unauthorized('Please log-in to see that'));
-    }
-  });
-
-  server.route([
-    {
-      method: 'GET',
-      path: '/route/num/2',
-      handler: function (request, reply) {
-        return reply('ok 2');
-      }
-    },
-    {
-      method: 'GET',
-      path: '/route/num/{id*}',
-      config: {
-        validate: {
-          params: {
-            id: Joi.string().max(10).min(3).alphanum()
-          }
-        }
-      },
-      handler: function (request, reply) {
-        return reply('ok 1');
-      }
-    }
-  ]);
+  //// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  generic cases >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  //server.route({
+  //  method: [
+  //    'GET',
+  //    'POST'
+  //  ],
+  //  path: '/{name*}',
+  //  config: {
+  //    // validate will ensure YOURNAME is valid before replying to your request
+  //    validate: {
+  //      params: {
+  //        name: Joi.string().max(40).min(2).alphanum()
+  //      }
+  //    },
+  //    handler: function (request, reply) {
+  //      reply('Hi ' + request.params.name + '!');
+  //    }
+  //  }
+  //});
+  //
+  //server.route({
+  //  method: 'DELETE',
+  //  path: '/{name*}',
+  //  config: {
+  //    // validate will ensure YOURNAME is valid before replying to your request
+  //    validate: {
+  //      params: {
+  //        name: Joi.string().max(40).min(2).alphanum()
+  //      }
+  //    },
+  //    handler: function (request, reply) {
+  //      reply('Goodbye ' + request.params.name + '!');
+  //    }
+  //  }
+  //});
+  //
+  //server.route({
+  //  method: 'GET',
+  //  path: '/photo/{id*}',
+  //  config: {
+  //    // validate will ensure YOURNAME is valid before replying to your request
+  //    validate: {
+  //      params: {
+  //        id: Joi.string().max(40).min(2).alphanum()
+  //      }
+  //    }
+  //  },
+  //  handler: function (request, reply) {
+  //    // until we implement authentication we are simply returning a 401:
+  //    reply(Boom.unauthorized('Please log-in to see that'));
+  //  }
+  //});
+  //
+  //server.route([
+  //  {
+  //    method: 'GET',
+  //    path: '/route/num/2',
+  //    handler: function (request, reply) {
+  //      return reply('ok 2');
+  //    }
+  //  },
+  //  {
+  //    method: 'GET',
+  //    path: '/route/num/{id*}',
+  //    config: {
+  //      validate: {
+  //        params: {
+  //          id: Joi.string().max(10).min(3).alphanum()
+  //        }
+  //      }
+  //    },
+  //    handler: function (request, reply) {
+  //      return reply('ok 1');
+  //    }
+  //  }
+  //]);
 });
 
 server.state('data', {
