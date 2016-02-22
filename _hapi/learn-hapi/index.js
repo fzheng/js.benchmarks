@@ -18,9 +18,9 @@ server.connection({
 });
 
 server.register([
-  {
-    register: require('inert')
-  },
+  //{
+  //  register: require('inert')
+  //},
   {
     register: require('hapi-server-session'),
     options: {
@@ -154,6 +154,57 @@ server.register([
             reply("Internal Error");
           }
         });
+      }
+    }
+  });
+
+  server.route({
+    method: 'POST',
+    path: '/negative/bcrypt/1/{password*}',
+    config: {
+      validate: {
+        params: {
+          password: Joi.string().max(128).min(8).alphanum()
+        }
+      },
+      handler: function (request, reply) {
+        bcrypt.hash(request.params.password, null, null, function (err, hash) {
+          if (err) {
+            return reply(err);
+          }
+          reply(hash);
+        });
+      }
+    }
+  });
+
+  server.route({
+    method: 'POST',
+    path: '/negative/bcrypt/2/{password*}',
+    config: {
+      validate: {
+        params: {
+          password: Joi.string().max(128).min(8).alphanum()
+        }
+      },
+      handler: function (request, reply) {
+        reply(bcrypt.hashSync(request.params.password, null));
+      }
+    }
+  });
+
+  server.route({
+    method: 'POST',
+    path: '/negative/bcrypt/3/{password*}',
+    config: {
+      validate: {
+        params: {
+          password: Joi.string().max(128).min(8).alphanum()
+        }
+      },
+      handler: function (request, reply) {
+        var hash = 'Hello World';
+        reply(bcrypt.hashSync(request.params.password, hash));
       }
     }
   });
