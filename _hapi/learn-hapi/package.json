@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/dwyl/learn-hapi",
   "dependencies": {
+    "bcrypt": "^0.8.5",
     "bell": "^6.0.0",
     "boom": "^3.1.1",
     "handlebars": "^4.0.5",
