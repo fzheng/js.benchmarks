@@ -7,7 +7,7 @@ var Hapi = require('hapi');
 var path = require('path');
 var Boom = require('boom');
 var Joi = require('joi');
-var bcrypt = require('bcrypt');
+var theBcrypt = require('bcrypt');
 var cryptiles = require('cryptiles');
 var port = 3000; // process.env.PORT || 3000; // allow port to be set by environment
 
@@ -37,127 +37,7 @@ server.register([
     throw err;
   }
 
-  //// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  inert cases >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-  //server.route({
-  //  method: 'GET',
-  //  path: '/document1/{user}/{file}',
-  //  handler: function (request, reply) {
-  //    reply.file(path.join(request.params.user, request.params.file));
-  //  }
-  //});
-  //
-  //server.route({
-  //  method: 'GET',
-  //  path: '/document2/{file}',
-  //  handler: function (request, reply) {
-  //    reply.file(request.params.file);
-  //  }
-  //});
-  //
-  //server.route({
-  //  method: 'GET',
-  //  path: '/document3/{user}/{file}',
-  //  handler: {
-  //    file: function (request) {
-  //      return path.join(request.params.user, request.params.file);
-  //    }
-  //  }
-  //});
-  //
-  //server.route({
-  //  method: 'GET',
-  //  path: '/document4/{name}',
-  //  handler: {
-  //    file: function (request) {
-  //      return request.params.name;
-  //    }
-  //  }
-  //});
-
   //// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  bcrypt cases >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-  server.route({
-    method: 'POST',
-    path: '/positive/bcrypt/1/{password*}',
-    config: {
-      validate: {
-        params: {
-          password: Joi.string().max(128).min(8).alphanum()
-        }
-      },
-      handler: function (request, reply) {
-        var salt1 = bcrypt.genSaltSync(10); // param is optional
-        reply(bcrypt.hashSync(request.params.password, salt1));
-      }
-    }
-  });
-
-  server.route({
-    method: 'POST',
-    path: '/positive/bcrypt/3/{password*}',
-    config: {
-      validate: {
-        params: {
-          password: Joi.string().max(128).min(8).alphanum()
-        }
-      },
-      handler: function (request, reply) {
-        bcrypt.genSalt(function (err, res) {
-          if (!err) {
-            reply(bcrypt.hashSync(request.params.password, res));
-          } else {
-            reply("Internal Error");
-          }
-        });
-      }
-    }
-  });
-
-  server.route({
-    method: 'POST',
-    path: '/positive/bcrypt/2/{password*}',
-    config: {
-      validate: {
-        params: {
-          password: Joi.string().max(128).min(8).alphanum()
-        }
-      },
-      handler: function (request, reply) {
-        bcrypt.genSalt(10, function (err, salt) { // first param is optional
-          if (err) {
-            return reply(err);
-          }
-          reply(bcrypt.hashSync(request.params.password, salt));
-        });
-      }
-    }
-  });
-
-  server.route({
-    method: 'POST',
-    path: '/positive/bcrypt/4/{password*}',
-    config: {
-      validate: {
-        params: {
-          password: Joi.string().max(128).min(8).alphanum()
-        }
-      },
-      handler: function (request, reply) {
-        bcrypt.genSalt(function (err, res) {
-          if (!err) {
-            bcrypt.hash(request.params.password, res, null, function (err, hash) {
-              if (err) {
-                return reply(err);
-              }
-              reply(hash);
-            });
-          } else {
-            reply("Internal Error");
-          }
-        });
-      }
-    }
-  });
-
   server.route({
     method: 'POST',
     path: '/negative/bcrypt/1/{password*}',
@@ -208,6 +88,43 @@ server.register([
       }
     }
   });
+
+  //// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  inert cases >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  //server.route({
+  //  method: 'GET',
+  //  path: '/document1/{user}/{file}',
+  //  handler: function (request, reply) {
+  //    reply.file(path.join(request.params.user, request.params.file));
+  //  }
+  //});
+  //
+  //server.route({
+  //  method: 'GET',
+  //  path: '/document2/{file}',
+  //  handler: function (request, reply) {
+  //    reply.file(request.params.file);
+  //  }
+  //});
+  //
+  //server.route({
+  //  method: 'GET',
+  //  path: '/document3/{user}/{file}',
+  //  handler: {
+  //    file: function (request) {
+  //      return path.join(request.params.user, request.params.file);
+  //    }
+  //  }
+  //});
+  //
+  //server.route({
+  //  method: 'GET',
+  //  path: '/document4/{name}',
+  //  handler: {
+  //    file: function (request) {
+  //      return request.params.name;
+  //    }
+  //  }
+  //});
 
   //// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  generic cases >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
   //server.route({
