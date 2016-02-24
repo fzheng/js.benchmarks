@@ -21,17 +21,17 @@ server.register([
   //{
   //  register: require('inert')
   //},
-  {
-    register: require('hapi-server-session'),
-    options: {
-      key: cryptiles.randomString(16),
-      expiresIn: 100000,
-      cookie: {
-        isHttpOnly: true,
-        isSecure: true
-      }
-    }
-  }
+  //{
+  //  register: require('hapi-server-session'),
+  //  options: {
+  //    //key: cryptiles.randomString(16),
+  //    //expiresIn: 100000,
+  //    cookie: {
+  //      isHttpOnly: false,
+  //      isSecure: false
+  //    }
+  //  }
+  //}
 ], function (err) {
   if (err) {
     throw err;
