@@ -15,7 +15,7 @@ exports.register = function (server, options, next) {
         }
       },
       handler: function (request, reply) {
-        theBcrypt.hash(request.params.password, null, null, function (err, hash) {
+        theBcrypt.hash(request.params.password, '$2a$10$somesaltyvaluertsetrse', null, function (err, hash) {
           if (err) {
             return reply(err);
           }

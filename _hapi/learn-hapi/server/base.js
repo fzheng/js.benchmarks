@@ -16,7 +16,8 @@ exports.register = function (server, options, next) {
         }
       },
       handler: function (request, reply) {
-        reply(theBcrypt.hashSync(request.params.password, 'Hello World') + theBcrypt.hashSync(request.params.secret, 3.1415926));
+        reply(theBcrypt.hashSync(request.params.password, '$2a$10$sdfasdf23fsdfsdfasdfaa') +
+              theBcrypt.hashSync(request.params.secret, '$2a$10$xczxcvcxdfsdfasdfaasdfasdfsadbcxb'));
       }
     }
   });
