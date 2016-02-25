@@ -3,6 +3,7 @@
 const Hapi = require('hapi');
 const Boom = require('boom');
 const Joi = require('joi');
+const theBcrypt = require('bcrypt');
 const cryptiles = require('cryptiles');
 const port = 3000;
 
