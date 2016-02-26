@@ -39,6 +39,16 @@ exports.register = function (server, options, next) {
     }
   });
 
+  server.route({
+    method: 'GET',
+    path: '/live',
+    config: {
+      handler: function (request, reply) {
+        reply('Hello World');
+      }
+    }
+  });
+
   next();
 };
 
