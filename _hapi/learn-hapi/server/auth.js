@@ -19,7 +19,6 @@ exports.register = function (server, options, next) {
       if (!user) {
         return callback(null, false);
       }
-
       theBcrypt.compare(password, user.password, function (err, isValid) {
         callback(err, isValid, {
           id: user.id,
@@ -44,6 +43,7 @@ exports.register = function (server, options, next) {
     method: 'GET',
     path: '/live',
     config: {
+      auth: 'simple',
       handler: function (request, reply) {
         reply('Hello World');
       }
