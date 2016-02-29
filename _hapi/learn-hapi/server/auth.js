@@ -27,7 +27,10 @@ const validate = function (request, username, password, callback) {
 
 // Base routes for auth
 exports.register = function (server, options, next) {
-  server.auth.strategy('simple', 'basic', {validateFunc: validate});
+  server.auth.strategy('simple', 'basic', {
+    validateFunc: validate
+  });
+
   server.route({
     method: 'GET',
     path: '/auth',
