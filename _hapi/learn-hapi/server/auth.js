@@ -19,12 +19,12 @@ exports.register = function (server, options, next) {
       if (!user) {
         return callback(null, false);
       }
-      theBcrypt.compare(password, user.password, function (err, isValid) {
-        callback(err, isValid, {
-          id: user.id,
-          name: user.name
-        });
-      });
+      //theBcrypt.compare(password, user.password, function (err, isValid) {
+      //  callback(err, isValid, {
+      //    id: user.id,
+      //    name: user.name
+      //  });
+      //});
     }
   });
 
