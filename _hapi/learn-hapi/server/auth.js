@@ -11,24 +11,22 @@ const users = {
   }
 };
 
-const validate = function (request, username, password, callback) {
-  const user = users[username];
-  if (!user) {
-    return callback(null, false);
-  }
-
-  theBcrypt.compare(password, user.password, function (err, isValid) {
-    callback(err, isValid, {
-      id: user.id,
-      name: user.name
-    });
-  });
-};
-
 // Base routes for auth
 exports.register = function (server, options, next) {
   server.auth.strategy('simple', 'basic', {
-    validateFunc: validate
+    validateFunc: function (request, username, password, callback) {
+      const user = users[username];
+      if (!user) {
+        return callback(null, false);
+      }
+
+      theBcrypt.compare(password, user.password, function (err, isValid) {
+        callback(err, isValid, {
+          id: user.id,
+          name: user.name
+        });
+      });
+    }
   });
 
   server.route({
