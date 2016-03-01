@@ -35,13 +35,12 @@ exports.register = function (server, options, next) {
   });
   server.app.cache = cache;
 
-  server.auth.strategy('session', 'cookie', true, {
+  server.auth.strategy('session', 'cookie', {
     password: 'password-should-be-32-characters',
     cookie: 'sid-example',
     redirectTo: '/login',
     isSecure: false,
     validateFunc: function (request, session, callback) {
-
       cache.get(session.sid, (err, cached) => {
         if (err) {
           return callback(err, false);
@@ -70,7 +69,6 @@ exports.register = function (server, options, next) {
     path: '/home',
     config: {
       handler: function (request, reply) {
-
         reply('<html><head><title>Login page</title></head><body><h3>Welcome ' +
               request.auth.credentials.name +
               '!</h3><br/><form method="get" action="/logout">' +
@@ -88,6 +86,7 @@ exports.register = function (server, options, next) {
     path: '/login',
     config: {
       auth: {
+        strategy: 'session',
         mode: 'try'
       },
       plugins: {
@@ -109,6 +108,9 @@ exports.register = function (server, options, next) {
             if (!account || account.password !== request.payload.password) {
               message = 'Invalid username or password';
             }
+            //if (!account || !theBcrypt.compareSync(request.payload.password, account.password)) {
+            //  message = 'Invalid username or password';
+            //}
           }
         }
         if (request.method === 'get' || message) {
