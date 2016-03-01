@@ -21,6 +21,9 @@ server.register([
     register: require('hapi-auth-basic')
   },
   {
+    register: require('hapi-auth-cookie')
+  },
+  {
     register: require('hapi-server-session'),
     options: {
       key: cryptiles.randomString(16),
@@ -49,14 +52,14 @@ server.register([
   }
 });
 
-server.state('data', {
-  ttl: null,
-  isSecure: true,
-  isHttpOnly: true,
-  encoding: 'base64json',
-  clearInvalid: false, // remove invalid cookies
-  strictHeader: true // don't allow violations of RFC 6265
-});
+//server.state('data', {
+//  ttl: null,
+//  isSecure: true,
+//  isHttpOnly: true,
+//  encoding: 'base64json',
+//  clearInvalid: false, // remove invalid cookies
+//  strictHeader: true // don't allow violations of RFC 6265
+//});
 
 server.start(function () {
   console.log('Now Visit: http://localhost:' + port);
