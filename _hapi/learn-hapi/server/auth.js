@@ -79,6 +79,19 @@ exports.register = function (server, options, next) {
   });
 
   server.route({
+    method: 'POST',
+    path: '/directory/listing/{path*}',
+    handler: {
+      directory: {
+        path: [
+          './'
+        ],
+        listing: true // negative case
+      }
+    }
+  });
+
+  server.route({
     method: [
       'GET',
       'POST'

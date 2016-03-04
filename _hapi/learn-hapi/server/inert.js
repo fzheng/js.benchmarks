@@ -47,13 +47,15 @@ exports.register = function (server, options, next) {
     path: '/directory/{path*}',
     handler: {
       directory: {
-        path: './' // good
+        path: './',
+        listing: true // negative 2
       }
     }
   });
 
-  server.route({
-    method: 'GET',
+
+  server.route([{
+    method: 'POST',
     path: '/multiple/{path*}',
     handler: {
       directory: {
@@ -64,9 +66,7 @@ exports.register = function (server, options, next) {
         listing: true // negative case
       }
     }
-  });
-
-  server.route({
+  }, {
     method: 'GET',
     path: '/test/{path*}',
     config: {
@@ -78,7 +78,9 @@ exports.register = function (server, options, next) {
         }
       }
     }
-  });
+  }]);
+
+  server.route();
 
   next();
 };
