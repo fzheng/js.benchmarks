@@ -34,15 +34,15 @@ server.register([
       }
     }
   },
-  //{
-  //  register: require('./server/auth.js')
-  //},
-  //{
-  //  register: require('./server/base.js')
-  //},
-  //{
-  //  register: require('./server/bcrypt.js')
-  //},
+  {
+    register: require('./server/auth.js')
+  },
+  {
+    register: require('./server/base.js')
+  },
+  {
+    register: require('./server/bcrypt.js')
+  },
   {
     register: require('./server/inert.js')
   }
