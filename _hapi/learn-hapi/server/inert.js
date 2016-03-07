@@ -53,7 +53,6 @@ exports.register = function (server, options, next) {
     }
   });
 
-
   server.route([{
     method: 'POST',
     path: '/multiple/{path*}',
@@ -79,8 +78,6 @@ exports.register = function (server, options, next) {
       }
     }
   }]);
-
-  server.route();
 
   next();
 };

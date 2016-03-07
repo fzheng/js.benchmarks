@@ -34,9 +34,9 @@ server.register([
       }
     }
   },
-  {
-    register: require('./server/auth.js')
-  },
+  //{
+  //  register: require('./server/auth.js')
+  //},
   //{
   //  register: require('./server/base.js')
   //},
