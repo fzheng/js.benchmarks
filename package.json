@@ -17,13 +17,13 @@
     "mongodb": "^2.1.7",
     "mongojs": "^2.3.0",
     "mongoose": "^4.4.6",
-    "mongoose-mass-assign": "latest",
-    "promised-mongo": "latest",
+    "mongoose-mass-assign": "^0.4.0",
+    "promised-mongo": "^1.2.0",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "redis": "^2.5.0-1",
     "scrypt": "^6.0.1",
-    "sendgrid": "latest",
+    "sendgrid": "^2.0.0",
     "validator": "^4.9.0"
   }
 }
