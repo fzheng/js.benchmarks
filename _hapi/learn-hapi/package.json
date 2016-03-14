@@ -4,7 +4,7 @@
   "description": "Learn to build Web Applications and APIs using Hapi.js",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
