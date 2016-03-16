@@ -1,3 +1,5 @@
+'use strict';
+
 var app = (require('express'))();
 app.disable('X-Powered-By');
 
