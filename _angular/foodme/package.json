@@ -19,10 +19,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "express": ">= 3.0.0",
-    "csv": ">= 0.2.1",
-    "open": ">= 0.0.2",
-    "testacular": "canary"
+    "csv": "^0.4.6",
+    "express": "^4.13.4",
+    "open": "0.0.5",
+    "testacular": "^0.6.2"
   },
   "engines": {
     "node": ">= 0.8.4"
