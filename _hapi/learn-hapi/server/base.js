@@ -2,7 +2,7 @@
 
 const theBcrypt = require('bcrypt');
 const Joi = require('joi');
-const path = require('path');
+const Boom = require('boom');
 
 // Base routes for default index/root path, about page, 404 error pages, and others..
 exports.register = function (server, options, next) {
