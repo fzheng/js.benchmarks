@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="page-header">
+        <h3>Sign in</h3>
+    </div>
+    {{#if message}}
+    <div class="alert alert-danger fade in">
+        <button type="button" data-dismiss="alert" class="close">
+            <span class="ion-close-circled"></span>
+        </button>
+        <div>{{message}} </div>
+    </div>
+    {{/if}}
+
+    <form method="POST">
+    	<br/>
+
+        <input type="hidden" name="_csrf" value="Wna8cwSyMb9GXFvZmO1WixTelRPDfdagOdLK0=">
+        <div class="col-sm-8 col-sm-offset-2">
+            <div class="form-group">
+                <label for="email" class="control-label">Email</label>
+                <input type="email" name="email" id="email" placeholder="Email" autofocus="" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="password" class="control-label">Password</label>
+                <input type="password" name="password" id="password" placeholder="Password" class="form-control">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">
+                <span class="ion-android-hand"></span>
+                Login
+                </button>
+                <a href="/forgot" class="btn btn-link">Forgot your password?</a>
+            </div>
+            <hr>
+            <a href="/auth/facebook" class="btn btn-block btn-facebook btn-social">
+            	<i class="fa fa-facebook"></i>Sign in with Facebook
+            </a>
+            <a href="/auth/twitter" class="btn btn-block btn-twitter btn-social">
+            	<i class="fa fa-twitter"></i>Sign in with Twitter
+            </a>
+        </div>
+    </form>
+</div>

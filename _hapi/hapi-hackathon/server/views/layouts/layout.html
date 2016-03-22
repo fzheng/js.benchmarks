@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    {{#each assets.css }}
+	<link rel="stylesheet" href="{{.}}{{@root.version.cache}}"/>
+	{{/each}}
+</head>
+<body>
+    {{> header}}
+
+    <div class="container">
+        {{{content}}}
+    </div>
+    
+    {{> footer}}
+
+    {{#each assets.js }}
+	<script type="text/javascript" src="{{.}}{{@root.version.cache}}"></script>
+	{{/each}}
+
+</body>
+</html>

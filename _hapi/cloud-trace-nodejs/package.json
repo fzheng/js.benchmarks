@@ -1,0 +1,59 @@
+{
+  "name": "@google/cloud-trace",
+  "version": "0.3.0",
+  "description": "Node.js Support for Google Cloud Trace",
+  "main": "index.js",
+  "repository": "GoogleCloudPlatform/cloud-trace-nodejs",
+  "scripts": {
+    "test": "./bin/run-test.sh",
+    "coverage": "./bin/run-test.sh -c",
+    "bump": "./bin/run-bump.sh",
+    "closure": "./node_modules/.bin/closure-npc"
+  },
+  "keywords": [
+    "google",
+    "tracing",
+    "profiling"
+  ],
+  "author": "Google Inc.",
+  "contributors": [
+    {
+      "name": "Ali Ijaz Sheikh",
+      "email": "ofrobots@google.com"
+    },
+    {
+      "name": "Matt Loring",
+      "email": "mattloring@google.com"
+    },
+    {
+      "name": "Scott McMaster",
+      "email": "smcmaster@google.com"
+    }
+  ],
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=0.12"
+  },
+  "devDependencies": {
+    "closure-npc": "*",
+    "coveralls": "^2.11.8",
+    "glob": "^7.0.3",
+    "istanbul": "^0.4.2",
+    "jshint": "^2.9.1",
+    "mocha": "^2.2.4",
+    "nock": "^7.2.2",
+    "proxyquire": "^1.4.0",
+    "request": "^2.61.0",
+    "timekeeper": "0.0.5",
+    "tmp": "0.0.28"
+  },
+  "dependencies": {
+    "@google/cloud-diagnostics-common": "^0.2.1",
+    "continuation-local-storage": "^3.1.4",
+    "lodash.isequal": "^4.0.0",
+    "methods": "^1.1.1",
+    "semver": "^5.0.1",
+    "shimmer": "^1.0.0",
+    "uuid": "^2.0.1"
+  }
+}

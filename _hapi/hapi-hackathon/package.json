@@ -1,0 +1,41 @@
+{
+  "name": "hapi-hackathon",
+  "description": "Boilerplate Hapi server example. Node.js, Hapi, and Swig.",
+  "version": "0.0.1",
+  "author": "Minh Nguyen",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/truongminh/hapi-hackathon.git"
+  },
+  "main": "server.js",
+  "engines": {
+    "node": "0.10.x"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "postinstall": "bower install"
+  },
+  "dependencies": {
+    "bower": "~1.3.9",
+    "good": "^5.1.0",
+    "good-console": "^4.0.0",
+    "hapi": "^8.0.0",
+    "hapi-assets": "~0.3.0",
+    "hapi-cache-buster": "~0.4.0",
+    "hapi-named-routes": "~0.3.0",
+    "swig": "~1.4.2",
+    "q": "^1.2.0",
+    "lodash": "^3.6.0",
+    "mongoose": "^4.0.1",
+    "li": "^1.0.1",
+    "joi": "^6.1.2",
+    "hapi-auth-cookie": "^2.0.0",
+    "bcrypt-nodejs": "0.0.3",
+    "fb": "^0.7.0",
+    "tv": "^4.1.0",
+    "handlebars": "^3.0.2",
+    "twit": "^1.1.20",
+    "bell": "^2.7.0"
+  }
+}

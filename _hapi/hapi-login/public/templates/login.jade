@@ -1,0 +1,23 @@
+extends layout/layout
+
+block title
+  title Log In
+
+block content
+  .row
+    .col-sm-8.col-sm-offset-2
+      h2.text-center Log In
+      form.form-horizontal(action='login', method='POST')
+        .form-group
+          label.col-sm-2.control-label Email
+          .col-sm-10
+            input.form-control(type="text", name="email", placeholder="E-mail")
+        .form-group
+          label.col-sm-2.control-label Password
+          .col-sm-10
+            input.form-control(type="password", name="password", placeholder="Password")
+        .form-group
+          .col-sm-offset-2.col-sm-10
+            button.btn.btn-default(type='submit') Sign In
+      h5.col-sm-offset-2.col-sm-10 New? &nbsp;
+        a(href="signup") Sign Up Today

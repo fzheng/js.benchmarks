@@ -1,0 +1,27 @@
+//
+   Created by htm on 5/29/15.
+
+extends layout/layout
+
+block title
+   title Contact
+
+block content
+   .row
+      h1.text-center Contact Us
+      form(action='/contact', name='contact', id='contact', method='post')
+         fieldset
+            p
+               label(for='name') Name:
+               br
+               input(name='name', type='text', value='', id='name')
+            p
+               label(for='email') Email:
+               br
+               input(name='email', type='text', value='', id='email')
+            p
+               label(for='message') Message:
+               br
+               textarea(name='message', cols='40', rows='10', id='message')
+
+            button.btn.btn-default(type='submit') Submit

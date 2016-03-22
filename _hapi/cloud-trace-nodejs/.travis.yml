@@ -1,0 +1,28 @@
+sudo: false
+
+language: node_js
+
+node_js:
+  - "0.12"
+  - "4"
+  - "5"
+
+services:
+  - mongodb
+  - redis-server
+
+before_install:
+  - mysql -e "create database IF NOT EXISTS test;" -uroot
+
+env:
+  - GCLOUD_PROJECT_NUM=0 CXX=g++-4.8
+
+script:
+  - ./bin/run-test.sh -c
+
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-4.8

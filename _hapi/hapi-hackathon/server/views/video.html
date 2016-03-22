@@ -1,0 +1,39 @@
+<h1>Your {{source}} Videos</h1>
+
+<div>
+    <a href="/video/{{source}}/getall" class="btn btn-success pull-left" target="blank"> Read via API </a>
+
+    <form method="POST" class="pull-right">
+        <button class="btn btn-primary" type='submit'>
+            <i class="fa fa-key"></i>
+            | Pull new feeds
+        </button>    
+    </form>
+</div>
+
+</hr>
+
+</br>
+
+{{#if message}}
+    <div class="alert alert-danger fade in">
+        <button type="button" data-dismiss="alert" class="close">
+            <span class="ion-close-circled"></span>
+        </button>
+        <div>{{message}} </div>
+    </div>
+{{/if}}
+
+<table data-toggle="table"
+    data-url="/video/{{source}}/getall"
+    data-classes="table table-hover table-condensed"
+    data-striped="true">
+    <thead>
+        <tr>
+            <th data-field="id">Id</th>
+            <th data-field="likes">Likes</th>
+            <th data-field="shares">Shares</th>
+            <th data-field="created_time">Created Time</th>
+        </tr>
+    </thead>
+</table>
