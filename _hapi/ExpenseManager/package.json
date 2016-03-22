@@ -1,0 +1,29 @@
+{
+  "name": "ExpenseManagerAPI",
+  "version": "0.0.1",
+  "description": "Simple Expenses Manager",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Devendra Dhanal <devendradhanal@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^0.8.2",
+    "bluebird": "^2.9.24",
+    "boom": "^2.7.0",
+    "hapi": "^8.4.0",
+    "hapi-router": "^2.1.0",
+    "hapi-swagger": "^0.7.3",
+    "joi": "^6.1.0",
+    "lodash": "^3.6.0",
+    "moment": "^2.10.2",
+    "mongoskin": "^1.4.13",
+    "hapi-auth-bearer-token": "~3.1.1",
+    "hapi-authorization": "~2.1.2",
+    "winston": "~1.0.0"
+  },
+  "devDependencies": {
+    "node-dev": "~2.6.2"
+  }
+}
