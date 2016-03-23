@@ -1,0 +1,17 @@
+
+h1 Welcome to #{title} Online key generator!
+p SafePass is also a chrome extension! Use this site if you are unable to use the extension for some reason.
+
+p
+	|the Extension is available in the chrome-store, or you can check out the source-code
+	a(href="https://github.com/andersmartini/SafePass") here!
+
+<label for="domain">Where are you trying to log in?</label>
+<input type="text" name="domain" id="domain" placeholder="URL goes here..." />
+<label for="pass">Enter your master key here</label>
+<input type="password" name="pass" id="pass" placeholder="Password" />
+<input type="password" name="pver" id="pver" placeholder="Repeat Password" />
+p OBS! Your generated key will be displayed in the clear for you to copy!
+<button type="button" id="btn" class="btn btn-primary">Reveal hash</button>
+
+<div id="output"></div>
