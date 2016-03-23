@@ -2,7 +2,7 @@
   "name": "test.javascript",
   "version": "0.0.1",
   "description": "test javascript",
-  "main": "index.js",
+  "main": "main/express/index.js",
   "author": "fzheng",
   "dependencies": {
     "babel-preset-react": "^6.5.0",
