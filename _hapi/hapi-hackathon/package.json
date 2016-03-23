@@ -8,7 +8,7 @@
     "type": "git",
     "url": "https://github.com/truongminh/hapi-hackathon.git"
   },
-  "main": "server.js",
+  "main": "index.js",
   "engines": {
     "node": "0.10.x"
   },
