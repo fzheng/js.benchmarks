@@ -1,0 +1,27 @@
+{
+  "name": "learn-hapi",
+  "version": "0.1.0",
+  "description": "Learn to build Web Applications and APIs using Hapi.js",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fzheng/learn-hapi.git"
+  },
+  "keywords": [
+    "hapi"
+  ],
+  "author": "fzheng@codiscope.com",
+  "license": "ISL",
+  "dependencies": {
+    "bcrypt": "^0.8.5",
+    "hapi": "^12.1.0",
+    "hapi-auth-cookie": "^6.1.1"
+  },
+  "devDependencies": {
+    "code": "^2.0.1",
+    "lab": "^8.0.1"
+  }
+}
