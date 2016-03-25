@@ -146,7 +146,6 @@ server.connection({
   port: port
 });
 
-
 server.register(require('hapi-auth-cookie'), function (err) {
   if (err) {
     throw err;
