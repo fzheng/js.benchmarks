@@ -146,7 +146,7 @@ server.connection({
   port: port
 });
 
-server.register(require('custom-hapi-auth-cookie'), function (err) {
+server.register(require('custom-hapi-auth-cookie'), {redirectUrl: '/login2'}, function (err) {
   if (err) {
     throw err;
   }
