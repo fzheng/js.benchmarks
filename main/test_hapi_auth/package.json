@@ -14,7 +14,7 @@
     "hapi"
   ],
   "author": "fzheng@codiscope.com",
-  "license": "ISL",
+  "license": "MIT",
   "dependencies": {
     "bcrypt": "^0.8.5",
     "hapi": "^12.1.0",
