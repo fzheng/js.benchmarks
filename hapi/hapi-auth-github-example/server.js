@@ -11,7 +11,7 @@ var server = new Hapi.Server();
 
 server.connection({
 	host: 'localhost',
-	port: Number(process.env.PORT)
+	port: 3000
 });
 
 var opts = {
