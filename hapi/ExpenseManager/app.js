@@ -19,8 +19,7 @@ require('./server/common/auth').init(server);     // Register server auth scheme
 server.register({
   register: HapiRouter,
   options: {
-    // routesDir: __dirname + '/server/routes/'
-    routesDir: 'server/routes/'
+    routesDir: __dirname + '/server/routes/'
   }
 }, function (err) { if (err) { throw err; } });
 
