@@ -70,6 +70,9 @@ exports.register = function (server, options, next) {
         params: {
           id: Joi.string().max(40).min(2).alphanum()
         }
+      },
+      cors: {
+        origin: ['http://www.google.com']
       }
     },
     handler: function (request, reply) {
