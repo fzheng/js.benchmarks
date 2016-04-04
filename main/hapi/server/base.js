@@ -35,6 +35,7 @@ exports.register = function (server, options, next) {
           name: Joi.string().max(40).min(2).alphanum()
         }
       },
+      cors: true,
       handler: function (request, reply) {
         reply('Hi ' + request.params.name + '!');
       }
@@ -50,6 +51,9 @@ exports.register = function (server, options, next) {
         params: {
           name: Joi.string().max(40).min(2).alphanum()
         }
+      },
+      cors: {
+        origin: ['*']
       },
       handler: function (request, reply) {
         reply('Goodbye ' + request.params.name + '!');

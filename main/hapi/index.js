@@ -21,6 +21,12 @@ server.register([
     register: require('hapi-auth-basic')
   },
   {
+    register: require('crumb'),
+    options: {
+      restful: true
+    }
+  },
+  {
     register: require('hapi-auth-cookie')
   },
   {
