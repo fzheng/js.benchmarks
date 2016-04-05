@@ -6,7 +6,7 @@ const Joi = require('joi');
 const theBcrypt = require('bcrypt');
 const cryptiles = require('cryptiles');
 const fs = require('fs');
-const port = 3443;
+const port = require('config').get('/server/port');
 
 const server = new Hapi.Server();
 const tls = {
@@ -17,6 +17,10 @@ server.app.key = 'secret_app_value_102';
 server.connection({
   port: port,
   tls: tls
+});
+
+server.connection({
+  port: 8080
 });
 
 server.register([
