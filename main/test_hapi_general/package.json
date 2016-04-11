@@ -1,0 +1,14 @@
+{
+  "name": "test_hapi_general",
+  "version": "0.0.1",
+  "description": "test hapi in general",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Feng Zheng",
+  "license": "ISC",
+  "dependencies": {
+    "hapi": "^13.3.0"
+  }
+}
