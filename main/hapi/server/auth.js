@@ -80,13 +80,27 @@ exports.register = function (server, options, next) {
 
   server.route({
     method: 'POST',
-    path: '/directory/listing/{path*}',
+    path: '/directory1/listing/{path*}',
     handler: {
       directory: {
         path: [
-          './'
+          '/etc/1'
         ],
-        listing: true // negative case
+        listing: true, // negative case
+        showHidden: true
+      }
+    }
+  });
+
+  server.route({
+    method: 'POST',
+    path: '/directory2/listing/{path*}',
+    handler: {
+      directory: {
+        path: [
+          '/etc/2'
+        ],
+        showHidden: true
       }
     }
   });
