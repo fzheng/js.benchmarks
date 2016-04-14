@@ -1,6 +1,7 @@
 'use strict';
 
 const theBcrypt = require('bcrypt');
+const myCrypto = require('crypto');
 const Joi = require('joi');
 let uuid = 1;
 const users = {
@@ -20,12 +21,12 @@ exports.register = function (server, options, next) {
       if (!user) {
         return callback(null, false);
       }
-      //theBcrypt.compare(password, user.password, function (err, isValid) {
-      //  callback(err, isValid, {
-      //    id: user.id,
-      //    name: user.name
-      //  });
-      //});
+      theBcrypt.compare(password, user.password, function (err, isValid) {
+        callback(err, isValid, {
+          id: user.id,
+          name: user.name
+        });
+      });
     }
   });
 
@@ -101,6 +102,89 @@ exports.register = function (server, options, next) {
           '/etc/2'
         ],
         showHidden: true
+      }
+    }
+  });
+
+  server.route({
+    method: 'POST',
+    path: '/negative/pbkdf2/csalt/{password*}',
+    config: {
+      validate: {
+        params: {
+          password: Joi.string().max(128).min(8).alphanum()
+        }
+      },
+      handler: function (request, reply) {
+        const salt = 'static_salt';
+        myCrypto.pbkdf2(request.params.password, salt, 100000, 512, 'sha512', function (err, hash) {
+          if (err) throw err;
+          reply(hash.toString('base64'));
+        });
+      }
+    }
+  });
+
+  server.route({
+    method: 'POST',
+    path: '/negative/pbkdf2/usalt/{password*}',
+    config: {
+      validate: {
+        params: {
+          password: Joi.string().max(128).min(8).alphanum()
+        }
+      },
+      handler: function (request, reply) {
+        if (request.params.salt > 10000) {
+          myCrypto.pbkdf2(request.params.password, request.params.salt, 100000, 512, 'sha512', function (err, hash) {
+            if (err) throw err;
+            reply(hash.toString('base64'));
+          });
+        } else {
+          myCrypto.pbkdf2(request.params.password, request.params.salt, 100000, 512, 'sha512', function (err, hash) {
+            if (err) throw err;
+            reply(hash.toString('base64'));
+          });
+        }
+      }
+    }
+  });
+
+  server.route({
+    method: 'POST',
+    path: '/positive/pbkdf2/positive1/{password*}',
+    config: {
+      validate: {
+        params: {
+          password: Joi.string().max(128).min(8).alphanum()
+        }
+      },
+      handler: function (request, reply) {
+        const salt = myCrypto.randomBytes(256).toString('hex');
+        myCrypto.pbkdf2(request.params.password, salt, 100000, 512, 'sha512', (err, hash) => {
+          if (err) throw err;
+          reply(hash.toString('base64'));
+        });
+      }
+    }
+  });
+
+  server.route({
+    method: 'POST',
+    path: '/positive/pbkdf2/positive2/{password*}',
+    config: {
+      validate: {
+        params: {
+          password: Joi.string().max(128).min(8).alphanum()
+        }
+      },
+      handler: function (request, reply) {
+        myCrypto.randomBytes(256, (err, salt) => {
+          myCrypto.pbkdf2(request.params.password, salt, 100000, 512, 'sha512', (err, hash) => {
+            if (err) throw err;
+            reply(hash.toString('base64'));
+          });
+        });
       }
     }
   });
