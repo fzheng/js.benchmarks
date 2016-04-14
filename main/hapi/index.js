@@ -4,6 +4,7 @@ const Hapi = require('hapi');
 const Boom = require('boom');
 const Joi = require('joi');
 const theBcrypt = require('bcrypt');
+const myCrypto = require('crypto');
 const cryptiles = require('cryptiles');
 const fs = require('fs');
 const port = require('config').get('/server/port');
