@@ -27,6 +27,13 @@ server.register([
           showHidden: true
         }
       }
+    },
+    {
+      method: 'GET',
+      path: '/',
+      handler: function (req, reply) {
+        reply('Aloha!');
+      }
     }
   ]);
 });
