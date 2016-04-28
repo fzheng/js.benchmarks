@@ -1,32 +1,24 @@
-# JavaScript Triggers Test (Deprecated)
-triggers have been added into uEngine's unit test
-```
-$ cd jacks.engine/uEngine && npm test
-```
+License
+=======
 
-## Triggers
-### Data Validation
-* [Server-Side Injection](main/express/serversideinjection)
+(The MIT License)
 
-### View
-* [Cross-Site Scripting](main/express/xss)
-* [Insecure Script](main/express/insecurescript)
+Copyright (c) 2016 Feng Zheng
 
-### Route
-* [Open Redirect](main/express/openredirect)
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-### Encryption
-* [Client-Side PRNG](main/express/randomclient)
-* [Server-Side PRNG](main/express/randomserver)
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-### Persistence
-* [Mongo: Mass Assignment](main/express/massassignment)
-* [Mongo: Untrusted Input in Find](main/express/untrustedfindinput)
-
-### State Management
-* [X-Powered-By](main/express/xpoweredby)
-* [HTTP Only Session](main/express/httponlysession)
-* [Secure Session](main/express/securesession)
-
-### Hapi related triggers
-* [Hapi](main/hapi)
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
