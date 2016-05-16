@@ -48,9 +48,18 @@ server.register([
       key: cryptiles.randomString(16),
       expiresIn: 100000,
       cookie: {
-        isHttpOnly: true,
-        isSecure: true
+        isHttpOnly: false,
+        isSecure: false
       }
+    }
+  },
+  {
+    register: require('hapi-session-mongo'),
+    options: {
+      ip: '192.168.0.1',
+      db: 'user',
+      name: 'sessions',
+      pwd: 'this is a secret'
     }
   },
   {
